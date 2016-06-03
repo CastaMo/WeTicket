@@ -1,0 +1,32 @@
+#upload-canteen-image.activity-init
+  .upload-canteen-image-mask
+  .canteen-images-wrapper
+    form(name='canteenImageManager' action)
+      .top-bar
+        p 管理餐厅图片
+        span.upload-canteen-image-close
+
+      .canteen-images-manager
+        .images-sliders
+          #slider
+            .slider-container-two-pics
+              img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/austin-fireworks.jpg', alt='')
+              img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/taj-mahal_copy.jpg', alt='')
+              //- img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/austin-fireworks.jpg', alt='')
+              //- img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ibiza.jpg', alt='')
+              //- img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ankor-wat.jpg', alt='')
+              img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/austin-fireworks.jpg', alt='')
+
+        .images-list
+          - var n = 0
+          while n++ < 5
+            .images-list-item
+              label.image-uploader(for='canteen-image-#{n}')
+                .upload-image
+                  span 点击上传图片
+                  input(type='file' id='canteen-image-#{n}' accept='image/*')
+                  img(class='image-uploader-preview-#{n}')
+        .images-controll-buttons
+          input(type='button' value='取消' name='canteen-image-cancel' id='canteen-image-cancel')
+          input(type='submit' value='保存' name='canteen-image-save' id='canteen-image-save')
+          span.save-canteen-image-message 保存成功

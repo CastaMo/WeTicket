@@ -1,0 +1,205 @@
+@import "../../../common/common";
+#promotion {
+    .promotion-wrapper {
+        width: 710px;
+        margin: 0 auto;
+        font-size: 14px;
+        
+        .ps-block {
+            margin: 31px 0;
+        }
+        .ps-table-button {
+            cursor: pointer;
+            margin-right: 20px;
+            padding: 8px 45px !important;
+            border:1px solid #e7e7eb;
+            border-radius:5px;
+        }
+        .ps-table-cancel-button {
+            background:#ffffff;
+        }
+        .ps-table-save-button {
+            color: #ffffff;
+            background-color: #ffc107;
+        }
+        
+        #promotion-single-main {
+            // display: none;
+            .ps-main-header {
+                line-height: 1;
+                height: 28px;
+                .psm-header-title {
+                    float: left;
+                    margin-top: 8px;
+                }
+                .psm-header-new-button {
+                    cursor: pointer;
+                    float: right;
+                    height: 100%;
+                    background:#ffc107;
+                    border-radius:3px;
+                    width:125px;
+                    color: #fff;
+                    .add-icon {
+                        // to-do
+                    }
+                    p {
+                        margin-top: 8px;
+                        margin-left: 39px;
+                    }
+                }
+            }
+            .psm-table {
+                width: 100%;
+                margin-top: 10px;
+                border-collapse: collapse;
+                thead {
+                    background-color: #f4f5f9;
+                    color: #8d8d8d;
+                    border: 1px solid #E7E7EB;
+                    tr {
+                        height: 47px;
+                        th {
+                            font-weight: normal;
+                        }
+                        .psm-table-item {
+                            width: 15%;
+                        }
+                        .psm-table-promotion {
+                            width: 15%;
+                        }
+                        .psm-table-time {
+                           width: 18%; 
+                        }
+                        .psm-table-foods {
+                            width: 27%;
+                        }
+                        .psm-table-operations {
+                            width: 25%;
+                        }
+                    }
+                }
+                tbody {
+                    border: 1px solid #E7E7EB;
+                    text-align: center;
+                    tr {
+                        border: 1px solid #E7E7EB;
+                        height: 72px;
+                        td {
+                            border: 1px solid #E7E7EB;
+                            .psm-table-time {
+                                font-size: 12px;
+                                color: #8d8d8d;
+                            }
+                            a {
+                                margin-left: 8px;
+                                margin-right: 8px;
+                                color: #0066ff;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        .ps-block {
+            .ps-table {
+                .ps-table-header {
+                    padding: 15px;
+                    border: 1px solid #E7E7EB;
+                    color: #8d8d8d;
+                    background-color: #f4f5f9;
+                }
+                
+            }
+            .ps-table-basic {
+                .ps-table-field {
+                    padding-left: 30px;
+                    border-left: 1px solid #E7E7EB;
+                    border-right: 1px solid #E7E7EB;
+                    border-bottom: 1px solid #E7E7EB;
+                    .ps-table-container {
+                        padding-top: 18px;
+                        padding-bottom: 18px;
+                        .ps-table-row {
+                            p {
+                                float: left;
+                                margin-right: 20px;
+                                line-height: 2.5;
+                            }
+                            input[type=text] {
+                                float: left;
+                                margin-right: 20px;
+                                padding: 9px;
+                                border: 1px solid #E7E7EB;
+                            }
+                            select {
+                                width: 150px;
+                                float: left;
+                                margin-right: 20px;
+                                padding: 9px;
+                                border: 1px solid #E7E7EB;
+                            }
+                        }
+                        .ps-table-fix-row {
+                            margin-top: 10px;
+                        }
+                    }
+                }
+            }
+        }
+        
+        #promotion-single-new, #promotion-single-edit {
+            .promotion-item-row {
+                p {
+                    margin-left: 14px;
+                }
+                input {
+                    width: 495px;
+                }
+            }
+            .promotion-method-row {
+                input {
+                    width: 80px;
+                    padding-right: 20px;
+                }
+                .input-money-helper {
+                    line-height: 2.5;
+                    margin-left: -40px;
+                }
+            }
+            .promotion-date-row {
+                input {
+                    width: 150px;
+                }
+            }
+            .promotion-food-row {
+                .food-choose-block {
+                    float: left;
+                    width: 250px;
+                    height: 140px;
+                    overflow: auto;
+                    border: 1px solid #E7E7EB;
+                    li.shown-item {
+                        padding-left: 30px;
+                        line-height: 2.5;
+                        height: 32px;
+                        border-bottom: 1px solid #E7E7EB;
+                        input[type=checkbox] {
+                            float: right;
+                            margin-top: 8px;
+                            margin-right: 5px;
+                            height: 18px;
+                            width: 18px;
+                        }
+                    }
+                    li.inner-shown-item {
+                        padding-left: 0px;
+                        margin-left: 45px;
+                    }
+                }
+            }
+        }
+        
+    }
+}

@@ -1,0 +1,272 @@
+@import "../main";
+#Property {
+    .property-wrapper {
+        width: 712px;
+        margin: 0 auto;
+        .property-container {
+            padding: 28px 0;
+            .property-new-btn-field {
+                .new-btn {
+                    width: 160px;
+                    line-height: 32px;
+                    padding: 0;
+                    background-color: @orange-color;
+                    color: #fff;
+                    font-size: 14px;
+                    .content-field {
+                        width: 92px;
+                        margin: 0 auto;
+                        .logo {
+                            margin-top: 9px;
+                            float: left;
+                            .background-norm();
+                            .background-size(14px, 14px);
+                        }
+                        p {
+                            float: right;
+                        }
+                    }
+                }
+            }
+            .property-table-field {
+                margin-top: 20px;
+                p {
+                    width: 100%;
+                    .ellipsisWithLineNum;
+                }
+                .property-table {
+                    border-left: solid 1px @border-grey-color;
+                    border-right: solid 1px @border-grey-color;
+                    .t-name {
+                        width: 205px;
+                    }
+                    .t-choose {
+                        width: 16.5%;
+                    }
+                    .t-spread {
+                        width: 16.5%;
+                    }
+                    .t-choose-spread {
+                        width: 33%;
+                    }
+                    .t-using-num {
+                        width: 15%;
+                    }
+                    .t-oper {
+                        width: 22%;
+                    }
+                    .property-header-container {
+
+                        //desing width 711px
+                        border-top: solid 1px @border-grey-color;
+                        border-bottom: solid 1px @border-grey-color;
+                        height: 45px;
+                        line-height: 45px;
+                        background-color: @grey-color;
+                        color: #8D8D8D;
+                        text-align: center;
+                    }
+                    .property-body-container {
+                        ul {
+                            li {
+                                font-size: 14px;
+                                border-bottom: solid 1px @border-grey-color;
+                                height: 84px;
+                                text-align: center;
+                                > *:not(.t-oper) {
+                                    height: 100%;
+                                    position: relative;
+                                }
+                                &:hover {
+                                	background-color: @shallow-orange-color;
+                                }
+                                .t-spread {
+                                    p:not(.tail):after {
+                                        content: "元";
+                                    }
+                                }
+                                .t-using-num {
+                                    p:after {
+                                        content: "款";
+                                    }
+                                }
+                                .t-oper {
+                                    .oper-field {
+                                        margin: 17px auto;
+                                        width: 81px;
+                                        .logo {
+                                            .background-norm();
+                                            .background-size(20px, 20px);
+                                        }
+                                        line-height: 20px;
+                                        > * {
+                                        	cursor: pointer;
+                                        }
+                                        .edit {
+                                            float: left;
+                                        }
+                                        .remove {
+                                            float: right;
+                                        }
+                                        .logo {
+                                            margin-left: 2px;
+                                        }
+                                        p {
+                                            margin-top: 10px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.p-handle-table {
+    .hide;
+    .property-handle-table-field {
+        border: solid 1px @border-grey-color;
+        font-size: 14px;
+        color: #4A4A4A;
+        line-height: 30px;
+        .body-wrapper {
+            width: 93%;
+            margin: 0 auto;
+        }
+        input {
+            height: 30px;
+            padding-left: 5px;
+        }
+        .property-handle-header {
+            line-height: 42px;
+            background-color: @grey-color;
+            .header-container {
+                padding-left: 20px;
+            }
+        }
+        .property-handle-body {
+            #basic {
+                .basic-container {
+                    padding: 30px 0;
+                    .warn-field {
+                        color: #8D8D8D;
+                        line-height: 14px;
+                    }
+                    .name-field, .remark-field {
+                        margin-top: 20px;
+                        width: 435px;
+                        p {
+                            float: left;
+                        }
+                        input {
+                            width: 350px;
+                            float: right;
+                        }
+                    }
+                }
+            }
+            #content {
+                .content-container {
+                    padding: 30px 0;
+                    ul {
+                        li {
+                            margin-bottom: 20px;
+                            .name-field {
+                                width: 260px;
+                                p {
+                                    float: left;
+                                }
+                                input {
+                                    float: right;
+                                    width: 175px;
+                                }
+                            }
+                            .price-field {
+                                margin-left: 20px;
+                                width: 155px;
+                                p {
+                                    float: left;
+                                }
+                                input {
+                                    float: right;
+                                    width: 105px;
+                                }
+                            }
+                            .oper-field {
+                                margin-left: 20px;
+                                > * > * {
+                                    .background-norm();
+                                    .background-size(30px, 30px);
+                                }
+                                > * {
+                                    cursor: pointer;
+                                }
+                                .top {
+                                    margin-right: 10px;
+                                }
+                            }
+                        }
+                    }
+                    .add-content-btn-field {
+                        .add-btn {
+                            line-height: 30px;
+                            width: 120px;
+                            .rounded-corners(5px);
+                            border: solid 1px @border-grey-color;
+                            cursor: pointer;
+                            .add-btn-wrapper {
+                                width: 80px;
+                                margin: 0 auto;
+                                .add-icon {
+                                    float: left;
+                                    .background-norm();
+                                    .background-size(14px, 14px);
+                                    margin-top: 8px;
+                                }
+                                p {
+                                    float: right;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            #uisng {
+                .using-content-container {
+                    padding: 35px 0 105px 0;
+                    .using-field {
+                        margin-left: 20px;
+                        .using-wrapper {
+                            width: 258px;
+                            height: 200px;
+                            overflow: auto;
+                            line-height: 30px;
+                        }
+                    }
+                }
+            }
+            #btn {
+                .btn-container {
+                    padding: 20px 0;
+                    > *:not(.clear) {
+                        .rounded-corners(5px);
+                        width: 120px;
+                        text-align: center;
+                        cursor: pointer;
+                    }
+                    .cancel-btn {
+                        margin-right: 30px;
+                        border: solid 1px @border-grey-color;
+                    }
+                    .save-btn {
+                        line-height: 32px;
+                        background-color: @orange-color;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}

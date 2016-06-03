@@ -1,0 +1,100 @@
+extends ../index
+
+block head
+	script(src="/Manage/Market/Member/Level/Data" type="text/javascript" async='async')
+	meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+	title Braeco
+	block css
+
+'''这里是主体'''
+block content
+	#level
+		.level-wrapper
+			#modify-btn.btn
+				p 积分折扣修改
+			#level-table
+				table
+					tr.table-title
+						td 等级
+						td 所需积分
+						td 折扣
+					tr
+						td LV0.黑铁
+						td 0
+						td 100%（不打折）
+					tr
+						td LV1.青铜
+						td 1000
+						td 95%（9.5折）
+					tr
+						td LV2.白银
+						td 10000
+						td 90%（9折）
+					tr
+						td LV3.黄金
+						td 30000
+						td 85%（8.5折）
+					tr
+						td LV4.白金
+						td 50000
+						td 80%（8折）
+					tr
+						td LV5.钻石
+						td 80000
+						td 75%（7.5折）
+			#modify-level
+				#modify-title
+					p 修改积分折扣
+				#level-0
+					#levelInfo
+						p LV0.黑铁级
+					#modifyInfo
+						span 升级积分
+						input
+						span 折扣
+						input
+				#level-1
+					#levelInfo
+						p LV1.青铜级
+					#modifyInfo
+						span 升级积分
+						input
+						span 折扣
+						input
+				#level-2
+					#levelInfo
+						p LV2.白银级
+					#modifyInfo
+						span 升级积分
+						input
+						span 折扣
+						input
+				#level-3
+					#levelInfo
+						p LV3.黄金级
+					#modifyInfo
+						span 升级积分
+						input
+						span 折扣
+						input
+				#level-4
+					#levelInfo
+						p LV4.白金级
+					#modifyInfo
+						span 升级积分
+						input
+						span 折扣
+						input
+				#level-5
+					#levelInfo
+						p LV5.钻石级
+					#modifyInfo
+						span 升级积分
+						input
+						span 折扣
+						input
+				#modifyChoose
+					.canBtn.btn
+						p 取消
+					.finBtn.btn
+						p 保存

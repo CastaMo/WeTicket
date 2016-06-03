@@ -1,0 +1,72 @@
+#property-new.p-handle-table
+	.property-handle-table-field
+		.property-handle-header
+			.header-container
+				p.header 新建属性组
+		.property-handle-body
+			#basic.top-bottom-border
+				.basic-wrapper.body-wrapper
+					.basic-container
+						.warn-field
+							p 带*号的为必填项
+						.name-field
+							p 名称*
+							input(name="new-name" id="new-name")
+							.clear
+						.remark-field
+							p 备注
+							input(name="new-remark" id="new-remark")
+							.clear
+			#content
+				.content-wrapper.body-wrapper
+					.content-container
+						.content-field
+							ul.content-list
+						.add-content-btn-field
+							.add-btn
+								.add-btn-wrapper
+									.add-icon
+									p 添加选项
+									.clear
+			//#uisng.top-bottom-border
+				.using-content-wrapper.body-wrapper
+					.using-content-container.parallel-container
+						.word-field
+							p 适用单品*
+						.using-field
+							.using-wrapper
+								.using-container
+									.top-choose
+										p 全部单品
+										.tick-icon
+									ul.food-choose-list
+										.category-choose
+											.arrow-icon
+											p 店长推荐
+											.tick-icon
+									ul.food-choose-list
+										.category-choose
+											.arrow-icon
+											p 香浓咖啡
+											.tick-icon
+										li.food-choose
+											p 意式特浓咖啡
+											.tick-icon
+										li.food-choose
+											p 拿铁咖啡
+											.tick-icon
+										li.food-choose
+											p 卡布奇诺
+											.tick-icon
+										li.food-choose
+											p 单品名称最长十二个中文字
+											.tick-icon
+						.clear
+			#btn
+				.btn-wrapper.body-wrapper
+					.btn-container.parallel-container
+						.cancel-btn
+							p 取消
+						.save-btn
+							p 保存
+						.clear

@@ -1,0 +1,17 @@
+extends index
+
+block css
+	script(src='/public/js/common/extra.min.js' type='text/javascript')
+	link(rel='stylesheet' type='text/css' href='/public/css/specialCommon/datepicker.min.css')
+	link(rel='stylesheet' type='text/css' href='/public/css/CanteenManageData/Record/Order/main.min.css')
+	link(rel='stylesheet' type='text/css' href='/public/css/CanteenManageData/Record/Order/base64.min.css')
+	link(rel='stylesheet' type='text/css' href='/public/css/common/extra.min.css')
+
+block bottom
+	script(src='/public/js/specialCommon/jquery.md5.js' type='text/javascript')
+	script(src='/public/js/specialCommon/datepicker.min.js' type='text/javascript')
+	script(src='/public/js/CanteenManageData/Record/Order/main.min.js' type='text/javascript')
+
+block json
+	#json-order-data(style="display:none") <?=$data?>
+	#json-page-data(style="display:none") <?=$page_data?>

@@ -1,0 +1,36 @@
+#category-edit.c-block
+	#edit-table.single-table
+		#t-header-field
+			.t-header
+				.t-content
+					p 修改品类
+		#t-body-field
+			.t-body
+				.t-content
+					.content-wrapper
+						.content-container
+							.warn-field
+								p 带 * 号的为必填项
+							.name-field
+								p 名称 *
+								.input-field
+									input(name='edit-name', id='edit-name' type='text' maxlength='21')
+								.clear
+							.pic-field
+								p 图片
+								.input-field
+									label(for='edit-pic')
+										.img-field
+											.img.default-category-image
+									input(name='edit-pic', id='edit-pic' type='file' class='hide')
+								.clear
+		#t-bottom-field
+			.t-bottom
+				.t-content
+					.content-wrapper
+						.content-container
+							.cancel-btn.btn
+								p 取消
+							.save-btn.btn
+								p 保存
+							.clear

@@ -1,0 +1,654 @@
+@import "../main";
+@import "animation";
+#food {
+    #food-single-new,
+    #food-single-edit {
+        .hide;
+    }
+    input,
+    textarea {
+        font-size: 16px;
+    }
+    .tick {
+        .background-norm();
+        .background-size(15px, 15px);
+        background-color: #fff;
+        border: solid 1px @border-grey-color;
+        float: left;
+        margin: 7.5px 9px 0 0;
+    }
+    select {
+        border: solid 1px @border-grey-color;
+        font-size: 14px;
+        line-height: 30px;
+        height: 30px;
+        background-color: #fff;
+        color: #4A4A4A;
+    }
+    .food-wrapper {
+        width: 709px;
+        margin: 0 auto;
+        .f-block {
+            margin: 25px 0;
+        }
+        #food-single-main {
+            .food-single-select-field {
+                p {
+                    line-height: 30px;
+                }
+                .select-container {
+                    margin-top: 5px;
+                    select {
+                        width: 255px;
+                    }
+                }
+            }
+            .food-single-table {
+                margin-top: 20px;
+                border: solid 1px @border-grey-color;
+                border-bottom: none;
+                .food-single-oper-field {
+                    height: 43px;
+                    line-height: 43px;
+                    .oper-container {
+                        margin-left: 30px;
+                        .parallel-container;
+                        > *:not(.clear) {
+                            cursor: pointer;
+                            width: 55px;
+                            margin-right: 30px;
+                            font-size: 14px;
+                            &:hover:not(.disabled) {
+                                p {
+                                    color: @orange-color;
+                                }
+                            }
+                            &.disabled {
+                                p {
+                                    color: @font-grey-color;
+                                }
+                            }
+                            icon {
+                                margin-top: 10.5px;
+                                float: left;
+                                .background-size(20px, 20px);
+                                .background-norm();
+                            }
+                            p {
+                                float: right;
+                            }
+                        }
+                    }
+                }
+                .food-single-header-field {
+                    height: 46px;
+                    font-size: 16px;
+                    line-height: 46px;
+                    border-top: solid 1px @border-grey-color;
+                    border-bottom: solid 1px @border-grey-color;
+                    background-color: @grey-color;
+                    .name-container {
+                        .parallel-container;
+                        .t-choose {
+                            position: relative;
+                            .choose-pic {
+                                .total-center;
+                            }
+                        }
+                        > *:not(.clear) {
+                            height: 46px;
+                            p {
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+                .food-single-list-field {
+                    .single-list-field {
+                        ul {
+                            li {
+                                border-bottom: solid 1px @border-grey-color;
+                                &:hover {
+                                    background-color: @shallow-orange-color;
+                                }
+                                position: relative;
+                                text-align: center;
+                                font-size: 14px;
+                                .single-info {
+                                    .parallel-container;
+                                    > *:not(.clear) {
+                                        height: 120px;
+                                        position: relative;
+                                        > * {
+                                            .total-center;
+                                            width: 85%;
+                                            &.choose-field {
+                                                width: 18px;
+                                            }
+                                            &.pic-field {
+                                                width: 100px;
+                                            }
+                                        }
+                                        p {
+                                            .ellipsisWithLineNum();
+                                        }
+                                    }
+                                }
+                                .single-cover {
+                                    .hide-cover {
+                                        .hide;
+                                        position: absolute;
+                                        height: 100%;
+                                        right: 0;
+                                        top: 0;
+                                        .background-norm();
+                                        .background-size(665px, 120px);
+                                        background-color: rgba(231, 231, 231, 0.75);
+                                        p {
+                                            line-height: 120px;
+                                            font-size: 20px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .t-choose {
+                    width: 6%;
+                    .choose-pic {
+                        .background-norm();
+                        .background-size(16px, 16px);
+                        border: solid 1px @border-grey-color;
+                    }
+                }
+                .t-pic {
+                    width: 17%;
+                    .pic-field {
+                        .pic {
+                            .background-norm();
+                            .background-size(100px, 100px);
+                        }
+                    }
+                }
+                .t-name {
+                    width: 17%;
+                }
+                .t-price {
+                    width: 12.8%;
+                    .price-field {
+                        p {
+                            &:before {
+                                content: "￥";
+                            }
+                        }
+                    }
+                }
+                .t-property {
+                    width: 12.6%;
+                }
+                .t-dc {
+                    width: 16.17%;
+                }
+                .t-remark {
+                    width: 17.5%;
+                }
+            }
+        }
+        .f-table {
+            border: solid 1px @border-grey-color;
+            font-size: 14px;
+            .t-wrapper {
+                width: 91.994%; //655px
+                margin: 0 auto;
+            }
+            .f-header-field {
+                background-color: @grey-color;
+                p {
+                    line-height: 43px;
+                }
+            }
+            .f-basic-field {
+                .left-part {
+                    width: 70.992%;
+                    border-right: solid 1px @border-grey-color;
+                }
+                .right-part {
+                    width: 160px;
+                    height: 217px;
+                    position: relative;
+                    .pic-field {
+                        .vertical-center;
+                        width: 160px;
+                        height: 160px;
+                        position: absolute;
+                        right: 0;
+                        label {
+                            cursor: pointer;
+                        }
+                        .img-field {
+                            .img {
+                                .background-norm();
+                                .background-size(160px, 160px);
+                            }
+                        }
+                        .warn-field {
+                            width: 100%;
+                            text-align: center;
+                        }
+                    }
+                }
+                .warn-container {
+                    margin-top: 13.5px;
+                    line-height: 54px;
+                    color: @font-grey-color;
+                }
+                .input-container {
+                    width: 462px;
+                    margin-bottom: 20px;
+                    line-height: 30px;
+                    p {
+                        float: left;
+                    }
+                    input {
+                        padding-left: 5px;
+                        font-size: 16px;
+                        width: 350px;
+                        height: 30px;
+                        float: right;
+                        margin-right: 30px;
+                    }
+                }
+                .basic-business-container {
+                    line-height: 30px;
+                    padding-bottom: 30px;
+                    .name-part {
+                        float: left;
+                    }
+                    .choose-part {
+                        float: right;
+                        margin-right: 30px;
+                        .choose-elem {
+                            .choose-field {
+                                cursor: pointer;
+                            }
+                            width: 70px;
+                            &:not(#choose-buffet) {
+                                margin-left: 23.6px;
+                            }
+                            input {
+                                width: 70px;
+                                height: 30px;
+                            }
+                        }
+                    }
+                }
+            }
+            .f-extra-field {
+                .extra-container {
+                    padding: 30px 0;
+                    line-height: 30px;
+                    > *:not(.intro-container) {
+                        margin-bottom: 20px;
+                    }
+                    .property-container {
+                        .left-part {
+                            width: 464px;
+                            p {
+                                float: left;
+                            }
+                            #property {
+                                float: right;
+                                width: 380px;
+                                .btn-field {
+                                    float: left;
+                                    .add-btn {
+                                        cursor: pointer;
+                                        width: 30px;
+                                        height: 30px;
+                                        .rounded-corners(5px);
+                                        border: solid 1px @border-grey-color;
+                                        text-align: center;
+                                        line-height: 30px;
+                                    }
+                                }
+                                .sub-item-field {
+                                    width: 330px;
+                                    min-height: 30px;
+                                    float: right;
+                                    border: solid 1px @border-grey-color;
+                                    ul {
+                                        margin-bottom: 5px;
+                                        li {
+                                            float: left;
+                                            margin: 5px 0 0 5px;
+                                            font-size: 12px;
+                                            line-height: 20px;
+                                            height: 20px;
+                                            .rounded-corners(2px);
+                                            background-color: @border-grey-color;
+                                            padding-left: 4px;
+                                            cursor: pointer;
+                                            p {
+                                                float: left;
+                                            }
+                                            .delete-icon {
+                                                float: right;
+                                                .background-norm();
+                                                .background-size(14px, 20px);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .right-part {
+                            .manage-property-btn {
+                                height: 30px;
+                                border: solid 1px @border-grey-color;
+                                width: 160px;
+                                text-align: center;
+                                padding: 0;
+                            }
+                        }
+                    }
+                    .remark-tag-container {
+                        .right-part {
+                            input {
+                                height: 30px;
+                                width: 569px;
+                            }
+                        }
+                    }
+                    .intro-container {
+                        .right-part {
+                            textarea {
+                                width: 549px;
+                                min-width: 549px;
+                                max-width: 549px;
+                                height: 55px;
+                                min-height: 55px;
+                                max-height: 55px;
+                                padding: 10px 10px;
+                                border: solid 1px @border-grey-color;
+                            }
+                        }
+                    }
+                }
+            }
+            .f-shelves-field {
+                .shelves-container {
+                    padding: 30px 0;
+                    line-height: 30px;
+                    > *:not(.time-container) {
+                        margin-bottom: 20px;
+                    }
+                    .date-container {
+                        > p {
+                            float: left;
+                        }
+                        ul {
+                            float: right;
+                            width: 570px;
+                            li {
+                                cursor: pointer;
+                                margin-right: 25px;
+                            }
+                        }
+                    }
+                    .time-container {
+                        .left-part {
+                            width: 464px;
+                            p {
+                                float: left;
+                            }
+                            #time {
+                                cursor: text;
+                                float: right;
+                                width: 380px;
+                                height: 30px;
+                                border: solid 1px @border-grey-color;
+                            }
+                        }
+                        .right-part {
+                            .manage-time-btn {
+                                height: 30px;
+                                border: solid 1px @border-grey-color;
+                                width: 160px;
+                                text-align: center;
+                                padding: 0;
+                            }
+                        }
+                    }
+                }
+            }
+            .f-dc-field {
+                .dc-container {
+                    padding: 30px 0;
+                    line-height: 30px;
+                    >:not(.enable-time-container) {
+                        margin-bottom: 20px;
+                    }
+                    .select-field {
+                        margin-left: 20px;
+                        position: relative;
+                        height: 30px;
+                        select {
+                            width: 245px;
+                        }
+                    }
+                    .dc-tool-container {
+                        .addtional {
+                            margin-left: 20px;
+                            input {
+                                height: 30px;
+                                width: 80px;
+                                margin-right: 10px;
+                            }
+                        }
+                    }
+                    .date-range-container,
+                    .time-range-container {
+                        > p {
+                            float: left;
+                        }
+                        .range-field {
+                            width: 569px;
+                            float: right;
+                            p {
+                                margin: 0 20px;
+                            }
+                            input {
+                                width: 180px;
+                            }
+                        }
+                    }
+                }
+            }
+            .f-oper-field {
+                border-top: solid 1px @border-grey-color;
+                .oper-container {
+                    padding: 30px 0;
+                    line-height: 30px;
+                    .btn {
+                        width: 120px;
+                        border: solid 1px @border-grey-color;
+                        text-align: center;
+                    }
+                    .cancel-btn {
+                        margin-right: 30px;
+                    }
+                    .save-btn {
+                        background-color: @orange-color;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#full-cover {
+    .hide;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    .full-cover-container,
+    .full-cover-wrapper {
+        height: 100%;
+        width: 100%;
+    }
+    .full-cover-container {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+    .popup {
+        height: 275px;
+        width: 450px;
+        background-color: #fff;
+        .title-field {
+            line-height: 64px;
+            background-color: @grey-color;
+            font-size: 20px;
+            .title-wrapper {
+                padding: 0 20px;
+                .close-field {
+                    float: right;
+                    margin: 14.5px 0;
+                    .close-btn {
+                        cursor: pointer;
+                        .background-norm();
+                        background-size: 20px 20px;
+                        height: 35px;
+                        width: 35px;
+                    }
+                }
+            }
+        }
+        .content-field {
+            height: 143px;
+            border-top: solid 1px @border-grey-color;
+            border-bottom: solid 1px @border-grey-color;
+            .content-wrapper {
+                line-height: 32px;
+                width: 332px;
+                height: 32px;
+                margin: 55px auto;
+                p {
+                    font-size: 14px;
+                }
+                .select-field {
+                    float: right;
+                    height: 32px;
+                }
+                select {
+                    width: 255px;
+                }
+            }
+        }
+        .btn-field {
+            .btn-wrapper {
+                width: 266px;
+                margin: 0 auto;
+                .btn-container {
+                    padding: 19px 0;
+                    .btn {
+                        width: 120px;
+                        padding: 0;
+                        text-align: center;
+                    }
+                    .cancel-btn {
+                        border: solid 1px @border-grey-color;
+                    }
+                    .confirm-btn {
+                        float: right;
+                        background-color: @orange-color;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+        &.property-field {
+            height: 390px;
+            .content-field {
+                height: auto;
+                .content-wrapper {
+                    margin: 30px auto;
+                    width: 258px;
+                    height: 190px;
+                    overflow: auto;
+                    border: solid 1px @border-grey-color;
+                    ul {
+                        li {
+                            border-bottom: solid 1px @border-grey-color;
+                            cursor: pointer;
+                            &:hover {
+                                background-color: @grey-color;
+                            }
+                            .property-content-wrapper {
+                                width: 100%;
+                                height: 30px;
+                                .name-field {
+                                    float: left;
+                                    margin-left: 7px;
+                                    line-height: 30px;
+                                }
+                                .tick-field {
+                                    float: right;
+                                    margin-right: 7px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.loading-field {
+            .animation-field {
+                .animation-wrapper {
+                    width: 250px;
+                    margin: 0 auto;
+                    .animation-container {
+                        padding: 40px 0;
+                        .logo-pic-field {
+                            width: 55px;
+                            height: 100px;
+                            margin: 0 auto;
+                            position: relative;
+                            .logo-pic {
+                                position: absolute;
+                                top: 0;
+                                left: 2.5px;
+                                .background-norm();
+                                .background-size(50px, 50px);
+                                .animation(animation-bounce 400ms cubic-bezier(0.165, 0.840, 0.440, 1.000) infinite alternate);
+                            }
+                            .shadow {
+                                width: 55px;
+                                height: 15px;
+                                position: absolute;
+                                left: 0;
+                                bottom: 0;
+                                background-color: #000;
+                                .rounded-corners(100%);
+                                opacity: 0.2;
+                                .animation(animation-shadow 400ms cubic-bezier(0.165, 0.840, 0.440, 1.000) infinite alternate);
+                            }
+                        }
+                        .word-field {
+                            margin-top: 40px;
+                            line-height: 40px;
+                            font-size: 20px;
+                            text-align: center;
+                            span.dot:before {
+                                content: "";
+                                .animation(animation-dot 2s infinite);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

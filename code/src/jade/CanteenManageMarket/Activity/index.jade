@@ -1,0 +1,16 @@
+extends ../../layout
+
+block mainHead
+  p.title 活动发布
+
+block head
+  //- script(src="/Manage/Market/Activity/Data" type="text/javascript" async='async')
+  script(src="/Manage/Market/Activity/Data" type="text/javascript")
+  meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+  title Braeco
+  block css
+
+block content
+  include activityMain
+  include uploadCanteenImage
+  include activitySpinner

@@ -1,0 +1,74 @@
+extends ../../layout
+
+block mainHead
+	p.title 仅需三步即可上线智慧餐厅
+
+block head
+	script(src="/Manage/Table/Data" type="text/javascript" async='async')
+	meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+	title Braeco
+	block css
+
+'''这里是主体'''
+block content
+	#config
+		.config-wrapper
+			#config-main
+				.stepsPic.steps-image
+				#steps
+					#step1.btn
+						.step1Pic.step1-image
+					#step2.btn
+						.step2Pic.step2-image
+					#step3.btn
+						.step3Pic.step3-image
+				#step1Content
+					.peopleManage
+						.peoPic.peo-image
+						h5 员工管理 
+						p 管理不同员工，为其分配账号与角色权限
+					.productManage
+						.proPic.pro-image
+						h5 产品安装
+						p 安装打印程序与手机APP，进一步提高效率
+					.paymentManage
+						.payPic.pay-image
+						h5 支付渠道开通
+						p 开通微信支付等支付渠道
+				#step2Content
+					.canOrder
+						.canPic.default-display-image
+						h5 堂食自助点餐
+						p 顾客到店后扫码自助点餐，极大提高经营效率
+					.takeAway
+						.takePic.default-display-image
+						h5 预订外带
+						p 顾客远程点餐，按时到店可直接取餐外带
+					.takeDis
+						.takeDisPic.default-display-image
+						h5 外卖配送
+						p 顾客远程订单，餐厅负责送餐上门
+				#step3Content
+					.categoryPart
+						.categoryPic.default-display-image
+						h5 品类
+						p 将单品分为不同品类管理，提高菜单可读性
+					.singlePart
+						.singlePartPic.default-display-image
+						h5 单品
+						p 菜单最基本单位，丰富信息将吸引顾客下单
+					.packagePart
+						.packagePartPic.default-display-image
+						h5 套餐
+						p 添加基于单品的套餐组合，提高客单价
+					.mustPoint
+						.mustPointPic.default-display-image
+						h5 必点
+						p 编辑顾客必点的商品，比如茶位、纸巾
+				#stepChoose
+					.lastBtn.btn
+						p 上一步
+					.nextBtn.btn
+						p 下一步
+					.finBtn.btn
+						p 完 成

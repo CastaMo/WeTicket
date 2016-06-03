@@ -1,0 +1,85 @@
+#newCoupon
+	.newCoupon-wrapper
+		#left-field
+			#preview-field
+				.preview-background.coupon-image
+				.pre-face-value
+					span.pre-face-value-unit ￥
+					span._pre-face-value 10.0
+				.pre-condition
+					span.pre-condition-fore 满 
+					span.pre-condition-unit ￥
+					span.pre-condition-value 999
+					span.pre-condition-back  可用
+				.pre-rule
+					.tip-1
+						span.tip-1-content 1. 本券仅在：杯口餐厅 使用;
+					.tip-2
+						span.tip-2-content 2. 每个微信号限领取 2 张代金券；
+					.tip-3
+						span.tip-3-content 3. 订单消费满 ￥999 可用，最多可同时使用 1 张。
+			#preview-bottom
+				p 代金券预览
+		#right-field
+			#up-field
+				._required 带*号的为必填项
+				#face-value
+					span._content 面值*
+					.face-value-input
+						input._face-value
+						span._unit 元
+				#valid-period
+					span._content 有效期*
+					select._valid-period
+						option 日期区间
+						option 有效天数
+				#date-period
+					span._content 日期区间*
+					._date-period
+						input
+						span._zhi 至
+						input
+				#valid-day
+					span._content 有效天数*
+					.valid-day-input
+						input._valid-day
+						span._unit 天
+				#use-condition
+					span._content 使用门槛*
+					.use-condition-input
+						span 消费满
+						input._use-condition
+						span._unit 元
+						span 可用
+			#down-field
+				#max-coupon
+					span._content 发放上限*
+					.max-coupon-input
+						input._max-coupon
+						span._unit 张
+				#max-own
+					span._content 领取上限*
+					#max-own-input
+						input._max-own
+						span._unit 张
+				#apply-area
+					span._content 适用业务*
+					.apply._first.true
+						input(type = "checkbox" checked = "checked")
+						span 堂食
+					.apply.true
+						input(type = "checkbox" checked = "checked")
+						span 预订
+					.apply.true
+						input(type = "checkbox" checked = "checked")
+						span 外卖
+				#multiple-use
+					span._content 叠加使用*
+					.multiple-use-input
+						input._multiple-use
+						span._unit 张
+			#btn-filed
+				.cancel-btn.btn
+					p 取消
+				.save-btn.btn
+					p 保存

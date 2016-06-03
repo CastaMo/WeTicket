@@ -1,0 +1,12 @@
+extends ../../layout
+
+block mainHead
+	p.title 可批量设置单品优惠、订单优惠等促销工具吸引顾客下单，提高客单价
+	#promotion-nav.head-nav
+		.pormotion-nav-wrapper.nav-wrapper
+			ul.promotion-nav-container.nav-container
+				a(href='/Manage/Market/Promotion/Single')
+					li#Single 单品优惠
+				a(href='/Manage/Market/Promotion/Order')
+					li#Property 订单优惠
+				.clear

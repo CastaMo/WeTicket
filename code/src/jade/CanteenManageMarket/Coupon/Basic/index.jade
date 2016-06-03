@@ -1,0 +1,23 @@
+extends ../index
+
+block head
+	meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+	title Braeco
+	block css
+
+'''这里是主体'''
+block content
+	include newCoupon
+	#Coupon
+		.Coupon-wrapper
+			#new-coupon
+				.new-btn.btn
+					p +新建代金券
+			#run-coupon
+				#run-title
+					p 运营中
+				#run-content-field
+			#pass-coupon
+				#pass-title
+					p 已过期
+				#pass-content-field

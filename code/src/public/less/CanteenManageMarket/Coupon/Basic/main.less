@@ -1,0 +1,221 @@
+@import "../../../common/common";
+#Coupon {
+    display: none;
+    .Coupon-wrapper {
+        width: 710px;
+        height: 800px;
+        #new-coupon {
+            text-align: center;
+            height: 40px;
+            width: 150px;
+            border: 1px solid #E7E7EB;
+            .new-btn {}
+        }
+        #run-coupon {
+            #run-title {}
+            #run-content-field {}
+        }
+        #pass-coupon {
+            #pass-title {}
+            #pass-content-field {}
+        }
+    }
+}
+
+#newCoupon {
+    .newCoupon-wrapper {
+        font-size: 14px;
+        font-family: Hiragino Sans GB, Microsoft Yahei, sans-serif;
+        #left-field {
+            float: left;
+            #preview-field {
+                .preview-background {
+                    margin: 30px 0 0 30px;
+                    background-repeat: no-repeat;
+                    height: 380px;
+                    width: 210px;
+                    .coupon-image {
+                        height: 380px;
+                        width: 210px;
+                    }
+                }
+                .pre-face-value {
+                    position: absolute;
+                    left: 335px;
+                    top: 405px;
+                    z-index: 20;
+                    float: left;
+                    .pre-face-value-unit {
+                        font-size: 16px;
+                        color: #910012;
+                        font-weight: bold;
+                    }
+                    ._pre-face-value {
+                        font-size: 23px;
+                        color: #910012;
+                        font-weight: bold;
+                    }
+                }
+                .pre-condition {
+                    position: absolute;
+                    left: 335px;
+                    top: 430px;
+                    .pre-condition-fore,
+                    .pre-condition-back {
+                        font-size: 9px;
+                    }
+                    .pre-condition-unit {
+                        font-size: 4px;
+                        color: #910012;
+                        font-weight: bold;
+                    }
+                    .pre-condition-value {
+                        font-size: 9px;
+                        color: #910012;
+                        font-weight: bold;
+                    }
+                }
+                .pre-rule {
+                    zoom: 50%;
+                    width: 385px;
+                    color: #FFFFFF;
+                    position: absolute;
+                    left: 510px;
+                    top: 1120px;
+                    font-size: 8px;
+                }
+            }
+            #preview-bottom {
+                color: #9B9B9B;
+                text-align: center;
+                margin: 20px 0 0 30px;
+                width: 210px;
+            }
+        }
+        #right-field {
+            float: left;
+            height: 650px;
+            width: 480px;
+            margin: 30px 0 0 20px;
+            ._content {
+                margin-top: 6px;
+                text-align: left;
+                width: 85px;
+                float: left;
+            }
+            ._unit {
+                position: relative;
+                left: -25px;
+                color: #C8C7CC;
+            }
+            input {
+                width: 330px;
+                padding-left: 5px;
+                border: 1px solid #E7E7EB;
+                height: 30px;
+            }
+            #up-field {
+                border: 1px solid #E7E7EB;
+                height: 280px;
+                ._required {
+                    margin: 30px 0 0 30px;
+                    color: #8D8D8D;
+                }
+                #face-value {
+                    margin: 20px 0 0 30px;
+                }
+                #valid-period {
+                    margin: 20px 0 0 30px;
+                    select {
+                        color: #4A4A4A;
+                        width: 330px;
+                        height: 30px;
+                        border: 1px solid #E7E7EB;
+                        font-family: Hiragino Sans GB, Microsoft Yahei, sans-serif;
+                    }
+                }
+                #date-period {
+                    margin: 20px 0 0 30px;
+                    input {
+                        width: 140px;
+                    }
+                    ._zhi {
+                        margin: 0 18px 0 18px;
+                    }
+                }
+                #valid-day {
+                    display: none;
+                    margin: 20px 0 0 30px;
+                }
+                #use-condition {
+                    margin: 20px 0 0 30px;
+                    input {
+                        margin-left: 10px;
+                        width: 236px;
+                    }
+                    .use-condition-input {
+                        span {
+                            height: 19px;
+                            position: relative;
+                            top: 2px;
+                        }
+                    }
+                }
+            }
+            #down-field {
+                border: 1px solid #E7E7EB;
+                border-top-width: 0;
+                height: 220px;
+                padding-top: 20px;
+                #max-coupon {
+                    margin: 0 0 0 30px;
+                }
+                #max-own {
+                    margin: 20px 0 0 30px;
+                }
+                #apply-area {
+                    margin: 20px 0 0 30px;
+                    clear: left;
+                    height: 19px;
+                    width: 330px;
+                    .apply {
+                        float: left;
+                        input {
+                            height: 16px;
+                            width: 16px;
+                            opacity: 0;
+                        }
+                    }
+                }
+                #multiple-use {
+                    margin: 30px 0 0 30px;
+                }
+            }
+            #btn-filed {
+                border: 1px solid #E7E7EB;
+                border-top-width: 0;
+                height: 70px;
+                .cancel-btn {
+                    margin: 20px 0 20px 30px;
+                    text-align: center;
+                    padding: 0;
+                    background-color: white;
+                    border: 1px solid #E7E7EB;
+                    color: #4A4A4A;
+                    height: 30px;
+                    width: 118px;
+                }
+                .save-btn {
+                    margin: 20px 0 20px 30px;
+                    text-align: center;
+                    padding: 0;
+                    height: 30px;
+                    width: 118px;
+                    background-color: #FFC107;
+                    border: none;
+                    color: white;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,80 @@
+#promotion-single-new.ps-block
+    .ps-table
+        .ps-table-header
+            p 新建促销项
+        .ps-table-basic
+            .ps-table-item-field.ps-table-field
+                .ps-table-item-container.ps-table-container
+                    .ps-table-row.promotion-item-row
+                        p 促销项
+                        input(type="text")
+                        .clear
+                     .ps-table-row.ps-table-fix-row.promotion-method-row
+                         p 促销工具
+                         select
+                             option(value="立减") 立减
+                             option(value="立减") 立减
+                             option(value="立减") 立减
+                         input(type="text")
+                         p.input-money-helper 元
+                         .clear
+            .ps-table-date-field.ps-table-field
+                .ps-table-date-container.ps-table-container
+                    .ps-table-row
+                        p 有效日期
+                        select
+                             option(value="日期区间") 日期区间
+                             option(value="日期区间") 日期区间
+                             option(value="日期区间") 日期区间
+                        .clear
+                    .ps-table-row.ps-table-fix-row.promotion-date-row
+                        p 日期区间
+                        input(type="text" placeholder="启动日期")
+                        p 至
+                        input(type="text" placeholder="停用日期")
+                        .clear
+                    .ps-table-row.ps-table-fix-row
+                        p 启动时间
+                        input(type="text")
+                        p 停用时间
+                        input(type="text")
+                        .clear
+                        
+            .ps-table-food-field.ps-table-field
+                .ps-table-food-container.ps-table-container
+                    .ps-table-row.promotion-food-row
+                        p 适用餐品
+                        .food-choose-block
+                            ul
+                                li.shown-item 全选
+                                    input(type="checkbox")
+                                li
+                                    ul
+                                        li.shown-item 品类1
+                                            input(type="checkbox")
+                                        li.shown-item.inner-shown-item 品类1餐品1
+                                            input(type="checkbox")                                        
+                                        li.shown-item.inner-shown-item 品类1餐品2
+                                            input(type="checkbox")                                        
+                                        li.shown-item.inner-shown-item 品类1餐品3
+                                            input(type="checkbox")                                        
+                                li
+                                    ul
+                                        li.shown-item 品类2
+                                            input(type="checkbox")
+                                        li.shown-item.inner-shown-item 品类2餐品1
+                                            input(type="checkbox")
+                                        li.shown-item.inner-shown-item 品类2餐品2
+                                            input(type="checkbox")
+                                        li.shown-item.inner-shown-item 品类2餐品3
+                                            input(type="checkbox")
+                                        li.shown-item.inner-shown-item 品类2餐品4
+                                            input(type="checkbox")
+                        .clear
+                    
+            .ps-table-button-field.ps-table-field
+                .ps-table-button-container.ps-table-container
+                    .ps-table-row
+                        input.ps-table-button.ps-table-cancel-button(type="button" value="取消")
+                        input.ps-table-button.ps-table-save-button(type="button" value="保存")
+                        .clear

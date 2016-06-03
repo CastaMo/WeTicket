@@ -1,0 +1,12 @@
+extends ../../layout
+
+block mainHead
+	p.title 按时间显示餐厅流水订单，一目了然
+	#record-nav.head-nav
+		.record-nav-wrapper.nav-wrapper
+			ul.record-nav-container.nav-container
+				a(href='/Manage/Data/Record/Order')
+					li#Order 订单记录
+				a(href='/Manage/Data/Record/Refund')
+					li#Refund 退款记录
+				.clear

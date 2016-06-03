@@ -1,0 +1,44 @@
+#record-refund-main
+    .rr-container-header
+        .date-input-header 日期区间
+        .input-field
+            input.start-date(data-toggle="datepicker")
+            p 至
+            input.end-date(data-toggle="datepicker")
+            button.search-btn 搜索
+                icon.search-icon
+            form(id="export-form" action="/Dinner/Manage/Orders/Excel" method="POST" target="_blank")
+                input(id="export-form-st" name="st" type='number' value="0" style="display:none")
+                input(id="export-form-en" name="en" type='number' value="0" style="display:none")
+                input.export-btn(type="submit" value="导出")
+            .clear
+    table.rr-container-table
+        thead
+            tr
+                th.rrt-refund-time 退款时间
+                th.rrt-order-number 订单号
+                th.rrt-refund-content 退款内容
+                th.rrt-refund-count 退款金额
+                th.rrt-refund-method 退款方式
+                th.rrt-refund-reason 退款原因
+        tbody
+            tr
+                td 2016-06-06 18:18:20
+                td 1234
+                td
+                    span.refund-item 抹茶拿铁
+                    span.refund-number x1
+                td 18元
+                td 微信支付
+                td 顾客点错
+    .rr-container-paginate
+        a.pre-page-url(href='#')
+            icon.prev-page-icon
+        p.current-page
+        p /
+        p.total-page
+        a.next-page-url(href='#')
+            icon.next-page-icon
+        input.target-page-input(type='number' max="100" min="1")
+        button.jump-btn 跳转
+        .clear

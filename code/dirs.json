@@ -1,0 +1,12 @@
+{
+	"css": "public/css/",
+	"js": "public/js/",
+	"ls": "public/ls/",
+	"less": "public/less/",
+	"jade": "jade/",
+	"version": "version/",
+	"source_path": "src/",
+	"dest_path": "bin/",
+	"dist_path": "dist/",
+	"lib_path": "lib/"
+}

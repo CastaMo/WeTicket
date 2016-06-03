@@ -1,0 +1,42 @@
+extends ../index
+
+block head
+	meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+	title Braeco
+	block css
+
+'''这里是主体'''
+block content
+	include fullCover
+	block data
+	#List
+		.List-wrapper
+			#search
+				.search-input
+					input._searchInput(maxlength = "11" placeholder = "会员编号或电话(至少6位)搜索")
+				.search-btn.btn
+					.search-btn-image
+			#member-table
+				table#Info
+					tr.table-title
+						td._loop-id(width = "80px") 
+							a(href = "?by=create_date&in=ASC&pn=1")会员编号
+						td(width = "120px") 电话号码
+						td(width = "120px") 微信昵称
+						td._loop-level(width = "85px")
+							a(href = "?by=EXP&in=ASC&pn=1") 会员等级
+						td._loop-exp(width = "80px")
+							a(href = "?by=EXP&in=ASC&pn=1") 积分
+						td._loop-balance(width = "100px")
+							a(href = "?by=balance&in=ASC&pn=1") 账户余额
+						td(width = "140px") 操作
+			#page-select
+				.lastPage.btn
+					.last-btn-image
+				.page
+				.nextPage.btn
+					.next-btn-image
+				#jump-input
+					input._jump-input
+				.jump-btn.btn 跳转
+			block pageData

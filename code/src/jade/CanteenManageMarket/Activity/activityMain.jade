@@ -1,0 +1,98 @@
+#category-main(ng-controller='category-main')
+  .braeco-activity-wrapper
+    .left-menu-wrapper
+      .upload-canteen-photo
+        span 上传餐厅图片
+      .activity-items
+        .promotion-activity
+          p 促销活动
+        ul.reduce-activities-list
+          li(ng-repeat='activity in salesActivities' ng-click='activityItemClickEvent($event)')
+            .content
+              .pic
+                img(ng-src='{{baseImageUrl + activity.pic}}')
+              .info
+                .title {{activity.title}}
+                .brief {{activity.intro}}
+          li.new-sale-activity(ng-if='isNewSaleActivity')
+            .content
+              .pic
+                img(ng-src='{{preImageUrl}}')
+              .info
+                .title {{activityName}}
+                .brief {{activityBrief}}
+
+        .new-promotion-activity.new-activity(ng-click='newPromotionActivity($event)') 添加促销活动
+
+      .activity-items
+        .theme-activity
+          p 主题活动
+        ul.theme-activities-list
+          li(ng-repeat='activity in themeActivities' ng-click='activityItemClickEvent($event)')
+            .content
+              .pic
+                img(ng-src='{{baseImageUrl + activity.pic}}')
+              .info
+                .title {{activity.title}}
+                .brief {{activity.intro}}
+          li.new-theme-activity-li(ng-if='isNewThemeActivity')
+            .content
+              .pic
+                img(ng-src='{{preImageUrl}}')
+              .info
+                .title {{activityName}}
+                .brief {{activityBrief}}
+
+        .new-theme-activity.new-activity(ng-click='newThemeActivity($event)') 添加主题活动
+
+    .right-content-wrapper
+      .form-container
+        form(name='activityForm' id='activityForm')
+          .warn.form-item
+            p 带 * 号为必填项
+
+          .form-item.activity-name
+            label(for='activity-name') 活动名称 *
+            input(type='text' id='activity-name' name='activityName' required ng-model='activityName')
+            span 字数不超过5个汉字或10个字母
+            span.letter-number 0 / 10
+
+          .form-item
+            label(for='expiry-date') 有效期 *
+            select(id='expiry-date' name='expiryDate' ng-model='expiryDate')
+              option(value='0') 永久
+              option(value='1') 日期区间
+
+          .form-item.date-range
+            label.date-range-label.disabled 日期区间
+
+            input(id='activity-start-date' name='activityStartDate' data-toggle="datepicker" ng-model='activityStartDate' disabled required)
+            label.disabled 至
+            input(id='activity-end-date' name='activityEndDate' data-toggle="datepicker" ng-model='activityEndDate' disabled required)
+            //- input(type='date' id='activity-start-date' name='activity-start-date' data-toggle="datepicker" ng-model='activityStartDate' disabled)
+            //- label.disabled 至
+            //- input(type='date' id='activity-end-date' name='activity-end-date' data-toggle="datepicker" ng-model='activityEndDate' disabled)
+
+          .form-item.activity-image
+            label.activity-image-label.image-uploader(for='activity-upload-image')
+              span 图片 *
+              .upload-image
+                img#activity-image-preview(src='http://ww4.sinaimg.cn/large/ed796d65gw1f4etfd2bn8j20e807l0tw.jpg')
+            input(type='file' id='activity-upload-image' name='activity-upload-image' accept='image/*' ng-required='isImageChange' ng-model='activityUploadImage')
+
+          .form-item.activity-brief
+            label.activity-brief-label(for='activity-brief') 活动简介 *
+            textarea(type='text' id='activity-brief' name='activity-brief' required ng-model='activityBrief')
+            span.letter-number 0 / 40
+
+          .form-item.activity-content
+            label.activity-content-label(for='activity-content') 活动详情 *
+            textarea(type='text' id='activity-content' name='activity-content' required ng-model='activityContent')
+            span.letter-number 0 / 200
+
+          .form-item.action-buttons
+            input(type='button' value='取消' name='activity-cancle' id='activity-cancle' ng-click='cancleTheEdit($event)')
+            input(type='submit' value='修改' name='activity-save' id='activity-save' ng-click='editActivity($event)' ng-if='isEditActivity')
+            input(type='submit' value='新建' name='activity-save' id='activity-save' ng-click='createActivity($event)' ng-if='isNewActivity')
+            span.activity-hide.info-message 保存成功
+            span.delete-acvivity(ng-if='isEditActivity' ng-click='deleteActivity($event)') 删除该活动

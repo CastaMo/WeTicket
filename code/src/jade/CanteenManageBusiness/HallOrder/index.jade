@@ -1,0 +1,12 @@
+extends ../../layout
+
+block mainHead
+	p.title 堂食点餐
+	#Hall-Order-nav.head-nav
+		.Hall-Order-nav-wrapper.nav-wrapper
+			ul.Hall-Order-nav-container.nav-container
+				a(href='/Manage/Business/HallOrder/Basic')
+					li#Basic 业务设置
+				a(href='/Manage/Business/HallOrder/Table')
+					li#Table 桌位管理
+				.clear

@@ -1,0 +1,114 @@
+@import "../../../common/common";
+
+#level {
+	.level-wrapper {
+		width: 710px;
+		margin: 30px 0 0 30px;
+		clear: right;
+		#modify-btn {
+			font-size: 14px;
+			color: #4A4A4A;
+			text-align: center;
+			border: 1px solid #E7E7EB;
+			position: relative;
+			height: 30px;
+			width: 120px;
+			margin: 0 0 20px 0;
+			float: right;
+		}
+		#level-table {
+			float: right;
+			margin: 0;
+			top: 100px;
+			table {
+				font-family: Hiragino Sans GB, Microsoft Yahei, sans-serif;
+				font-size: 14px;
+				border-collapse: collapse;
+				border: 1px solid #E7E7EB;
+				.table-title {
+					background-color: #F4F5F9;
+					td {
+						color: #8D8D8D;
+						height: 45px;
+						width: 236px;
+						border-width: 1px 0 1px 0;	
+					}
+				}
+				tr {
+					width: 712px;
+					height: 42px;
+					td {
+						color: #4A4A4A;
+						text-align: center;
+						padding-left: 8px;
+						padding-right: 8px;
+						border: 1px solid #E7E7EB;
+						height: 44px;
+					}
+				}
+			}
+		}
+		#modify-level {
+			display: none;
+			font-size: 14px;
+			#modify-title {
+				padding: 15px 0 0 14px;
+				background-color: #F4F5F9;
+				border: 1px solid #E7E7EB;
+				height: 35px;
+			}
+			#level-0,
+			#level-1,
+			#level-2,
+			#level-3,
+			#level-4,
+			#level-5 {
+				border: 1px solid #E7E7EB;
+				border-top-width: 0;
+				height: 100px;
+				#levelInfo {
+					padding: 20px 0 0 70px;
+				}
+				#modifyInfo {
+					padding: 5px 0 0 60px;
+					span {
+						margin-left: 80px;
+						margin-right: 20px;
+					}
+				}
+				input {
+					padding-left: 5px;
+					border: 1px solid #E7E7EB;
+					height: 30px;
+					width: 100px;
+				}
+			}
+			#modifyChoose {
+	            margin: 0;
+	            border: 1px solid #E7E7EB;
+	            border-top-width: 0;
+	            height: 70px;
+	            .canBtn {
+	                margin: 20px 0 20px 30px;
+	                text-align: center;
+	                padding: 0;
+	                background-color: white;
+	                border: 1px solid #E7E7EB;
+	                color: #4A4A4A;
+	                height: 30px;
+	                width: 118px;
+	            }
+	            .finBtn {
+	                margin: 20px 0 20px 30px;
+	                text-align: center;
+	                padding: 0;
+	                height: 30px;
+	                width: 118px;
+	                background-color: #FFC107;
+	                border: none;
+	                color: white;
+	            }
+	        }
+		}
+	}
+}

@@ -1,0 +1,12 @@
+extends ../../layout
+
+block mainHead
+	p.title 管理不同员工，为其分配账号与角色
+	#staff-nav.head-nav
+		.staff-nav-wrapper.nav-wrapper
+			ul.staff-nav-container.nav-container
+				a(href='/Manage/Settings/Staff/Account')
+					li#Account 员工账号
+				a(href='/Manage/Settings/Staff/Role')
+					li#Role 角色权限
+				.clear

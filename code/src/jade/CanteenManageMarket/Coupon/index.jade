@@ -1,0 +1,12 @@
+extends ../../layout
+
+block mainHead
+	p.title 创建、管理各种优惠券
+	#Coupon-nav.head-nav
+		.Coupon-nav-wrapper.nav-wrapper
+			ul.Coupon-nav-container.nav-container
+				a(href='/Manage/Market/Coupon/Basic')
+					li#Basic 代金券
+				a(href='/Manage/Market/Coupon/Other')
+					li#Level 其他券
+				.clear

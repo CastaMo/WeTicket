@@ -1,0 +1,527 @@
+@import "../../../common/common";
+#record {
+    .record-wrapper {
+        width: 710px;
+        margin: 0 auto;
+        font-size: 14px;
+        
+        #record-order-main {
+            margin: 30px 0;
+            .ro-container-header {
+                .date-input-header {
+                    margin-bottom: 6px;
+                }
+                .input-field {
+                    * {
+                        padding: 6px;
+                        float: left;
+                    }
+                    .start-date {
+                        width: 120px;
+                        height: 36px;
+                        margin-right: 10px;
+                        border: 1px solid #e7e7eb;
+                    }
+                    .end-date {
+                        width: 120px;
+                        height: 36px;
+                        margin-left: 10px;
+                        margin-right: 15px;
+                        border: 1px solid #e7e7eb;
+                    }
+                    .search-btn {
+                        width: 72px;
+                        height: 36px;
+                        margin-right: 20px;
+                        line-height: 1.8;
+                        background-color: #fff;
+                        border: 1px solid #E7E7EB;
+                        border-radius: 5px;
+                        .search-icon {
+                            width: 16px;
+                            height: 16px;
+                            margin-top: -2px;
+                            background-size:  16px 16px;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                        }
+                    }
+                    .type-filter {
+                        padding: 7px 6px;
+                        border: 1px solid #e7e7eb;
+                    }
+                    #export-form {
+                        padding: 0;
+                        float: right;
+                    }
+                    .export-btn {
+                        height: 36px;
+                        padding: 7px 15px;
+                        background-color: #fff;
+                        border: 1px solid #e7e7eb;
+                        border-radius: 5px;
+                    }
+                }
+            }
+            .ro-container-table {
+                width: 100%;
+                margin-top: 10px;
+                border-collapse: collapse;
+                > thead {
+                    background-color: #f4f5f9;
+                    color: #8d8d8d;
+                    border: 1px solid #E7E7EB;
+                    > tr {
+                        height: 47px;
+                        > th {
+                            font-weight: normal;
+                        }
+                        .rot-pay-time {
+                            width: 15%;
+                        }
+                        .rot-number {
+                            width: 10%;
+                        }
+                        .rot-order-number {
+                            width: 11%;
+                        }
+                        .rot-water-number {
+                            width: 9%;
+                        }
+                        .rot-pay-count {
+                            width: 12%;
+                        }
+                        .rot-order-type {
+                            width: 10%;
+                        }
+                        .rot-pay-method {
+                            width: 12%;
+                        }
+                        .rot-method {
+                            width: 20%;
+                        }
+                    }
+                }
+                > tbody {
+                    border: 1px solid #E7E7EB;
+                    text-align: center;
+                    > tr {
+                        border: 1px solid #E7E7EB;
+                        height: 72px;
+                        > td {
+                            border: 1px solid #E7E7EB;
+                            .method-container {
+                                cursor: pointer;
+                                position: relative;
+                                float: left;
+                                margin: 0 15px;
+                                margin-top: 11px;
+                                padding-bottom: 11px;
+                                icon {
+                                    float: left;
+                                    width: 25px;
+                                    height: 25px;
+                                    margin-bottom: 5px;
+                                    background-size: 25px 25px;
+                                    background-repeat: no-repeat;
+                                    background-position: center;
+                                }
+                                .refund-disable-description {
+                                    display: none;
+                                    cursor: auto;
+                                    position: absolute;
+                                    width: 240px;
+                                    height: 110px;
+                                    margin-left: -108px;
+                                    z-index: 50;
+                                    background-size: 240px 110px;
+                                    background-repeat: no-repeat;
+                                    background-position: center;
+                                    p {
+                                        margin-top: 40px;
+                                    }
+                                }
+                            }
+                        }
+                        td.td-methods {
+                            padding-left: 17px;
+                        }
+                        td.td-water-number {
+                            position: relative;
+                            > p {
+                                cursor: pointer;
+                            }
+                            .order-details-container {
+                                display: none;
+                                position: absolute;
+                                margin-left: -95px;
+                                width: 250px;
+                                z-index: 10;
+                                .order-details-header {
+                                    height: 60px;
+                                    line-height: 5.2;
+                                    background-size: 250px 60px;
+                                    background-repeat: no-repeat;
+                                    background-position: center;
+                                }
+                                .order-details-body {
+                                    font-size: 12px;
+                                    line-height: 1.5;
+                                    padding: 15px 12px 20px 12px;
+                                    background-color: #fff;
+                                    border-left: 1px solid #E7E7EB;
+                                    border-right: 1px solid #E7E7EB;
+                                    border-bottom: 1px solid #E7E7EB;
+                                    
+                                    .order-pay-method, .order-table {
+                                        font-size: 14px;
+                                    }
+                                    .order-infomation {
+                                        text-align: left;
+                                    }
+                                    .info-number {
+                                        margin-top: 10px;
+                                    }
+                                    .details-block {
+                                        margin-top: 10px;
+                                    }
+                                    .left-span {
+                                        float: left;
+                                    }
+                                    .right-span {
+                                        float: right;
+                                    }
+                                    .sub-food-item {
+                                        color: #8d8d8d;
+                                    }
+                                    
+                                    table.order-food-table {
+                                        width: 100%;
+                                        .table-cat-col {
+                                            text-align: left;
+                                            width: 50%;
+                                        }
+                                        .table-num-col {
+                                            text-align: center;
+                                            width: 20%;
+                                        }
+                                        .table-pri-col {
+                                            text-align: right;
+                                            width: 30%;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .ro-container-paginate {
+                float: right;
+                margin-top: 20px;
+                * {
+                    float: left;
+                    margin: 0 4px;
+                }
+                p {
+                    line-height: 2.2;
+                }
+                .target-page-input {
+                    width: 52px;
+                    height: 30px;
+                    padding-left: 5px;
+                    border: 1px solid #e7e7eb;
+                }
+                .jump-btn {
+                    padding: 7px 20px;
+                    border-radius: 5px;
+                    background-color: #fff;
+                    border: 1px solid #e7e7eb;
+                }
+                .prev-page-icon {
+                    width: 30px;
+                    height: 30px;
+                    background-size: 30px 30px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+                .next-page-icon {
+                    width: 30px;
+                    height: 30px;
+                    background-size: 30px 30px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+            }
+        }
+    }
+}
+#full-cover {
+    .hide;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    .full-cover-container,
+    .full-cover-wrapper {
+        height: 100%;
+        width: 100%;
+    }
+    .full-cover-container {
+        background-color: rgba(0, 0, 0, 0.6);
+        .refund-block {
+            background-color: #fff;
+            .refund-block-header {
+                height: 58px;
+                width: 612px;
+                background-color: #f4f5f9;
+                p {
+                    float: left;
+                    margin-left: 20px;
+                    font-size: 18px;
+                    line-height: 3.5;
+                    color: #4a4a4a;
+                }
+                .refund-close-button {
+                    cursor: pointer;
+                    float: right;
+                    margin-top: 18px;
+                    margin-right: 18px;
+                    width: 23px;
+                    height: 23px;
+                    background-size: 23px 23px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+            }
+            .refund-block-content {
+                .left-span {
+                    float: left;
+                }
+                .right-span {
+                    float: right;
+                }
+                .refund-food-table {
+                    margin: 20px 0px;
+                    padding: 0px 60px;
+                    width: 100%;
+                    tr {
+                        height: 40px;
+                    }
+                    td {
+                        text-align: center;
+                    }
+                    .table-cat-col {
+                        width: 30%;
+                    }
+                    .cat-td {
+                        text-align: left;
+                        .sub-food-item {
+                            display: none;
+                            font-size: 14px;
+                        }
+                    }
+                    .table-num-col {
+                        text-align: center;
+                        width: 50%;
+                    }
+                    .table-pri-col {
+                        width: 20%;
+                    }
+                    .sub-icon, .add-icon {
+                        float: left;
+                        width: 22px;
+                        height: 22px;
+                        cursor: pointer;
+                        margin: 0 10px;
+                        margin-top: -2px;
+                        background-size: 22px 22px;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+                    .sub-icon {
+                        margin-left: 68px;
+                    }
+                    .cur-td {
+                        float: left;
+                        width: 45px;
+                    }
+                }
+                .sperate-block {
+                    border-bottom: 1px solid #e7e7eb;
+                }
+                .refund-promotion-block {
+                    margin: 20px 0px;
+                    padding: 0px 60px;
+                    span {
+                        margin-bottom: 5px;
+                    }
+                }
+                .refund-reason-block {
+                    margin: 20px 0px;
+                    padding: 0px 60px;
+                    span {
+                        margin-right: 20px;
+                    }
+                    input {
+                        border: 1px solid #e7e7eb;
+                        padding: 8px;
+                        width: 80%;
+                    }
+                }
+                .refund-conclusion-block {
+                    margin: 20px 0px;
+                    padding: 0px 60px;
+                    #all-refund-checkbox {
+                        width: 18px;
+                        height: 18px;
+                        margin-right: 10px;
+                    }
+                    #refund-money {
+                        font-weight: bolder;
+                        color: #eb4f10;
+                    }
+                }
+                .refund-button-block {
+                    margin: 20px 0px;
+                    padding: 0px 60px;
+                    text-align: center;
+                    .cancel-btn {
+                        margin: 0px 20px;
+                        padding: 9px 32px;
+                        border-radius: 5px;
+                        border: 1px solid #E7E7EB;
+                        background-color: #fff;
+                    }
+                    .comfirm-btn {
+                        margin: 0px 20px;
+                        padding: 9px 32px;
+                        border-radius: 5px;
+                        border: none;
+                        color: #fff;
+                        background-color: #eb4f10;
+                    }
+                    .comfirm-btn-disable {
+                        background-color: rgba(235, 79, 16, 0.2);
+                    }
+                    .password-block {
+                        width: 240px;
+                        height: 195px;
+                        position: absolute;
+                        margin-left: 190px;
+                        background-size: 240px 195px;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+                    #refund-error-message {
+                        color: #eb4f10;
+                    }
+                    .password-block-info {
+                        margin: 20px 0;
+                    }
+                    .password-block-input {
+                        margin: 20px 0;
+                        input {
+                            padding: 8px;
+                            border: 1px solid #E7E7EB;
+                        }
+                    }
+                    .password-block-button {
+                        .password-comfirm-btn {
+                            float: left;
+                            margin-left: 20px;
+                            padding: 8px 26px;
+                            border: none;
+                            color: #fff;
+                            background: #ffc107;
+                            border-radius: 5px;
+                        }
+                        .password-comfirm-btn-disable {
+                            background: rgba(255, 193, 7, 0.5);
+                        }
+                        .password-cancel-btn {
+                            float: right;
+                            margin-right: 20px;
+                            padding: 8px 26px;
+                            border: 1px solid #e7e7eb;
+                            background-color: #fff;
+                            border-radius: 5px;
+                        }
+                    }
+                }
+            }
+        }
+        .print-block {
+            background-color: #fff;
+            .print-block-header {
+                height: 58px;
+                width: 452px;
+                background-color: #f4f5f9;
+                p {
+                    float: left;
+                    margin-left: 20px;
+                    font-size: 18px;
+                    line-height: 3.5;
+                    color: #4a4a4a;
+                }
+                .print-close-button {
+                    cursor: pointer;
+                    float: right;
+                    margin-top: 18px;
+                    margin-right: 18px;
+                    width: 23px;
+                    height: 23px;
+                    background-size: 23px 23px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+            }
+            .print-block-content {
+                .printer-choose-block {
+                    margin: 32px 96px 18px 96px;
+                    height: 200px;
+                    border: 1px solid #e7e7eb;
+                    overflow: auto;
+                    .printer-item {
+                        height: 32px;
+                        border-bottom: 1px solid #e7e7eb;
+                        p {
+                            padding-left: 9px;
+                            line-height: 2.3;
+                            float: left;
+                        }
+                        input {
+                            margin: 7px;
+                            float: right;
+                            width: 18px;
+                            height: 18px;
+                        }
+                    }
+                }
+                .button-block {
+                    border-top: 1px solid #e7e7eb;
+                    text-align: center;
+                    .cancel-btn {
+                        margin: 20px;
+                        padding: 8px 26px;
+                        border: 1px solid #e7e7eb;
+                        background-color: #fff;
+                        border-radius: 5px;
+                    }
+                    .comfirm-btn {
+                        margin: 20px;
+                        padding: 8px 26px;
+                        border: none;
+                        color: #fff;
+                        background: #ffc107;
+                        border-radius: 5px;
+                    }
+                    .comfirm-btn-disable {
+                        background: rgba(255, 193, 7, 0.5);
+                    }
+                }
+            }
+        }
+    }
+}

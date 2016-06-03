@@ -1,0 +1,36 @@
+#category-new.c-block
+	#new-table.single-table
+		#t-header-field
+			.t-header
+				.t-content
+					p 新建品类
+		#t-body-field
+			.t-body
+				.t-content
+					.content-wrapper
+						.content-container
+							.warn-field
+								p 带 * 号的为必填项
+							.name-field
+								p 名称 *
+								.input-field
+									input(name='new-name', id='new-name' type='text' maxlength='21')
+								.clear
+							.pic-field
+								p 图片
+								.input-field
+									label(for='new-pic')
+										.img-field
+											.img.default-category-image
+									input(name='new-pic', id='new-pic' type='file' class='hide')
+								.clear
+		#t-bottom-field
+			.t-bottom
+				.t-content
+					.content-wrapper
+						.content-container
+							.cancel-btn.btn
+								p 取消
+							.save-btn.btn
+								p 保存
+							.clear
