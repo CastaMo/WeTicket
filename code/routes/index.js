@@ -7,7 +7,7 @@ var router = express.Router();
 module.exports = function(passport) {
 
 	router.get('/', function(req, res) {
-		res.redirect('/Manage/Extra/Config');
+		res.send('hello world');
 	});
 
 	router.get('/Manage/Extra/Config', function(req, res) {
