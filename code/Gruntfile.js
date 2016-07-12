@@ -24,8 +24,6 @@ module.exports = function(grunt) {
         ];
     };
 
-    var gruntConfig = require("./gruntConfig")("./gruntConfig/gruntConfigComponents");
-
     // Project configuration.
     grunt.initConfig({
         // Metadata.
@@ -46,6 +44,15 @@ module.exports = function(grunt) {
             dist: {
                 src: ['lib/<%= pkg.name %>.js'],
                 dest: 'dist/<%= pkg.name %>.js'
+            }
+        },
+        uglify: {
+            options: {
+                banner: '<%= banner %>'
+            },
+            dist: {
+                src: '<%= concat.dist.dest %>',
+                dest: 'dist/<%= pkg.name %>.min.js'
             }
         },
         jshint: {
@@ -106,22 +113,11 @@ module.exports = function(grunt) {
         copy: {
             test: {
                 cwd: '<%= dirs.lib_path %>',
-                src: [
-                    '<%= dirs.js %>common/*.js',
-                    '<%= dirs.css %>common/*.css',
-                    '<%= dirs.js %>specialCommon/*.js',
-                    '<%= dirs.css %>specialCommon/*.css',
-                ],
+                src: ['<%= dirs.js %>ExtraCommon/*.js'],
                 dest: '<%= dirs.dest_path %>',
                 expand: true
             },
 
-            backup: {
-                cwd: '../braeco_client',
-                src: ['**/*', '!./node_modules/*'],
-                dest: '../backup/braeco_client',
-                expand: true
-            },
 
             versioncontrol: {
                 options: {
@@ -130,17 +126,11 @@ module.exports = function(grunt) {
                         var versionPrefix = "/public/version";
 
                         var commonMap = {
-                            commonJs: {
+                            utiljs: {
                                 reg: /(?:\/public\/js\/)(\S+)(?:\/extra\.min\.js)((\?v=)(\w+))?/g,
-                                path: 'bin/public/js/common/extra.min.js',
-                                prefix: '/public/js/common/extra.min_',
+                                path: 'bin/public/js/ExtraCommon/extra.min.js',
+                                prefix: '/public/js/ExtraCommon/extra.min_',
                                 type: '.js'
-                            },
-                            commonCss: {
-                                reg: /(?:\/public\/css\/)(\S+)(?:\/extra\.min\.css)((\?v=)(\w+))?/g,
-                                path: 'bin/public/css/common/extra.min.css',
-                                prefix: '/public/css/common/extra.min_',
-                                type: '.css'
                             }
                         };
 
@@ -183,36 +173,124 @@ module.exports = function(grunt) {
                         return content;
                     }
                 },
-                files: [
-                {
-                    cwd: './bin/module_static',
-                    src: ["**/*.html"],
-                    dest: './bin/views',
-                    expand: true
-                },
-                {
-                    cwd: './bin/module_dynamic',
+                files: [{
+                    cwd: './bin/views',
                     src: ["**/*.php"],
                     dest: './bin/module',
                     expand: true
-                }
-                ]
+                }]
             }
         },
 
         /*编译jade，源文件路径设为src的根目录，src/jade里面装jade的option部分(比如你把head和script分离出来)，编译后放在bin中*/
-        jade       :        gruntConfig.jade,
-        less       :        gruntConfig.less,
-        livescript :        gruntConfig.livescript,
-        browserify :        gruntConfig.browserify,
-        watch      :        gruntConfig.watch,
-        uglify     :        gruntConfig.uglify,
-        cssmin     :        gruntConfig.cssmin,
+        jade: {
+            options: {
+                data: {
+                    debug: false,
+                },
+                pretty: true
+            },
+            simulatepay: {
+                files: {
+                    "<%= dirs.dest_path %>SimulatePay.html": "<%= dirs.source_path %><%= dirs.jade %>SimulatePay/develop.jade",
+                    "<%= dirs.dest_path %>views/SimulatePay.php": "<%= dirs.source_path %><%= dirs.jade %>SimulatePay/formal.jade"
+                }
+            },
+            couponadd: {
+                files: {
+                    "<%= dirs.dest_path %>CouponAdd.html": "<%= dirs.source_path %><%= dirs.jade %>CouponAdd/develop.jade",
+                    "<%= dirs.dest_path %>views/CouponAdd.php": "<%= dirs.source_path %><%= dirs.jade %>CouponAdd/formal.jade"
+                }
+            }
+        },
+        less: {
+            options: {
+                compress: false,
+                yuicompress: false
+            },
+            simulatepay: {
+                files: {
+                    "<%= dirs.dest_path %><%= dirs.css %>SimulatePay/main.css": "<%= dirs.source_path %><%= dirs.less %>SimulatePay/main.less",
+                    "<%= dirs.dest_path %><%= dirs.css %>SimulatePay/base64.css": "<%= dirs.source_path %><%= dirs.less %>SimulatePay/base64.less"
+                }
+            },
+            couponadd: {
+                files: {
+                    "<%= dirs.dest_path %><%= dirs.css %>CouponAdd/main.css": "<%= dirs.source_path %><%= dirs.less %>CouponAdd/main.less",
+                    "<%= dirs.dest_path %><%= dirs.css %>CouponAdd/base64.css": "<%= dirs.source_path %><%= dirs.less %>CouponAdd/base64.less"
+                }
+            }
+        },
+        livescript: {
+            options: {
+                bare: true,
+                join: true,
+                flatten: true
+            },
+            simulatepay: {
+                expand: true,
+                cwd: '<%= dirs.source_path %><%= dirs.ls %>SimulatePay/',
+                src: ['*.ls'],
+                dest: '<%= dirs.dest_path %><%= dirs.js %>SimulatePay/',
+                ext: '.js'
+            },
+            couponadd: {
+                expand: true,
+                cwd: '<%= dirs.source_path %><%= dirs.ls %>CouponAdd/',
+                src: ['*.ls'],
+                dest: '<%= dirs.dest_path %><%= dirs.js %>CouponAdd/',
+                ext: '.js'
+            }
+        },
+        browserify: {
+            simulatepay: {
+                files: {
+                    "<%= dirs.dest_path %><%= dirs.js %>SimulatePay/main.js": ["<%= dirs.dest_path %><%= dirs.js %>SimulatePay/index.js"]
+                }
+            },
+            couponadd: {
+                files: {
+                    "<%= dirs.dest_path %><%= dirs.js %>CouponAdd/main.js": ["<%= dirs.dest_path %><%= dirs.js %>CouponAdd/index.js"]
+                }
+            }
+        },
+        watch: {
+            simulatepay: {
+                options: {
+                    livereload: lrPort,
+                    debounceDelay: debounceDelay
+                },
+                files: [
+                    '<%= dirs.source_path %>**/SimulatePay/**/**',
+                ],
+                tasks: [
+                    'less:simulatepay',
+                    'livescript:simulatepay',
+                    'browserify:simulatepay',
+                    'jade:simulatepay'
+                ]
+            },
+            couponadd: {
+                options: {
+                    livereload: lrPort,
+                    debounceDelay: debounceDelay
+                },
+                files: [
+                    '<%= dirs.source_path %>**/CouponAdd/**/**',
+                ],
+                tasks: [
+                    'less:couponadd',
+                    'livescript:couponadd',
+                    'browserify:couponadd',
+                    'jade:couponadd'
+                ]
+            }
+        },
 
         hashmap: {
             options: {
                 // These are default options
-                output: '#{= dest}/Manage/hash.json',
+                output: '#{= dest}/Extra/hash.json',
                 etag: null, // See below([#](#option-etag))
                 algorithm: 'md5', // the algorithm to create the hash
                 rename: '#{= dirname}/#{= basename}_#{= hash}#{= extname}', // save the original file as what
@@ -227,6 +305,83 @@ module.exports = function(grunt) {
                     '<%= dirs.css %>**/*.min.css'
                 ],
                 dest: '<%= dirs.dest_path %>public/<%= dirs.version %>'
+            }
+        },
+
+        /*压缩js，把dest_path中的js路径里所有js都压缩为一个main.min.js*/
+        uglify: {
+            options: {
+                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
+                report: "min"
+            },
+            dist: {
+                files: {
+                    '<%= dirs.dest_path %><%= dirs.js %>ExtraCommon/extra.min.js': ['<%= dirs.dest_path %><%= dirs.js %>ExtraCommon/*.js'],
+                    '<%= dirs.dest_path %><%= dirs.js %>SimulatePay/main.min.js': ['<%= dirs.dest_path %><%= dirs.js %>SimulatePay/main.js'],
+                    '<%= dirs.dest_path %><%= dirs.js %>CouponAdd/main.min.js': ['<%= dirs.dest_path %><%= dirs.js %>CouponAdd/main.js']
+                }
+            }
+        },
+
+        /*把dest_path中的css路径里所有css都压缩为一个main.min.css*/
+        cssmin: {
+            options: {
+                keepSpecialComments: 0,
+                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+            },
+            compress: {
+                files: {
+                    '<%= dirs.dest_path %><%= dirs.css %>SimulatePay/main.min.css': ['<%= dirs.dest_path %><%= dirs.css %>SimulatePay/main.css'],
+                    '<%= dirs.dest_path %><%= dirs.css %>SimulatePay/base64.min.css': ['<%= dirs.dest_path %><%= dirs.css %>SimulatePay/base64.css'],
+                    '<%= dirs.dest_path %><%= dirs.css %>CouponAdd/main.min.css': ['<%= dirs.dest_path %><%= dirs.css %>CouponAdd/main.css'],
+                    '<%= dirs.dest_path %><%= dirs.css %>CouponAdd/base64.min.css': ['<%= dirs.dest_path %><%= dirs.css %>CouponAdd/base64.css']
+                }
+            }
+        },
+
+        sftp: {
+            options: {
+                host: '<%= secret.host %>',
+                username: '<%= secret.username %>',
+                password: '<%= secret.password %>',
+                showProgress: true,
+                srcBasePath: "<%= dirs.dest_path %>",
+                port: '<%= secret.port %>',
+                createDirectories: true
+            },
+            module: {
+                options: {
+                    path: '<%= secret.path %>'
+                },
+                files: {
+                    "./": ["<%= dirs.dest_path %>module/*.php"]
+                }
+            },
+            config: {
+                options: {
+                    path: '<%= secret.path %>/application'
+                },
+                files: {
+                    "./": ["<%= dirs.dest_path %>public/<%= dirs.version %>**/main.min*.js",
+                        "<%= dirs.dest_path %>public/<%= dirs.version %>**/extra.min*.js",
+                        "<%= dirs.dest_path %>public/<%= dirs.version %>**/main.min*.css",
+                        "<%= dirs.dest_path %>public/<%= dirs.version %>**/base64.min*.css",
+                        "<%= dirs.dest_path %>public/<%= dirs.version %>**/hash.json"
+                    ]
+                }
+            }
+        },
+
+        sshexec: {
+            test: {
+                command: ['sh -c "cd /srv/www/WeTable; ls"',
+                    'sh -c "cd /; ls"'
+                ],
+                options: {
+                    host: '<%= secret.host %>',
+                    username: '<%= secret.username %>',
+                    password: '<%= secret.password %>'
+                }
             }
         }
     });
@@ -253,7 +408,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-usemin');
 
     grunt.registerTask('default', [
-        'clean:build',
+        'clean',
         'express',
         'copy:test',
         'less',
@@ -277,11 +432,12 @@ module.exports = function(grunt) {
         'less',
         'livescript',
         'browserify',
-        'jade',
         'cssmin',
         'uglify',
         'hashmap',
-        'copy:versioncontrol'
+        'jade',
+        'copy:versioncontrol',
+        'sftp'
     ]);
     grunt.registerTask('backup', [
         'copy:backup',
