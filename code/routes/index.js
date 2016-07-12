@@ -1,8 +1,9 @@
 'use strict';
 
-var express = require('express');
-var app = express();
-var router = express.Router();
+var express = require('express'),
+	app 	= express(),
+	router 	= express.Router(),
+	User 	= require("../controllers/user");
 
 module.exports = function(passport) {
 
@@ -10,9 +11,9 @@ module.exports = function(passport) {
 		res.send('hello world');
 	});
 
-	router.post('/test/tx1', function(req, res, next){
+	router.post('/test/tx1', User.getAllUsers);
 
-	});
+	router.post('/test/tx2', User.createUser);
 
 	return router;
 };

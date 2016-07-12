@@ -11,4 +11,4 @@ var SessionSchema = new Schema({
 });
 
 
-mongoose.model('Session', CinemaSchema);
+mongoose.model('Session', SessionSchema);
