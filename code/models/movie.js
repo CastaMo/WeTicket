@@ -11,4 +11,4 @@ var MovieSchema = new Schema({
 });
 
 
-mongoose.model('Session', MovieSchema);
+mongoose.model('Movie', MovieSchema);
