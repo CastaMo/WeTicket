@@ -20,6 +20,7 @@ var newAndSave = function(options, callback) {
 	movie.score 		= options.score;
 	movie.movie_name 	= options.movie_name;
 	movie.release_time 	= options.release_time;
+	movie.type 			= options.type;
 
 	movie.save(callback);
 }

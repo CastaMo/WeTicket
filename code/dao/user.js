@@ -20,6 +20,15 @@ var getUserByUserName = function(userName, callback) {
 	});
 }
 
+var getAllUsers = function(callback) {
+	User.find(function(err, users) {
+		if (err) {
+			return callback(err);
+		}
+		return callback(null, users);
+	});
+}
+
 var auth = function(userName, password, callback) {
 	getUserByUserName(userName, function(err, user) {
 		if (err) {
@@ -81,6 +90,7 @@ var updateProfile = function(options, callback) {
 }
 
 module.exports = {
+	getAllUsers 		: 	getAllUsers,
 	getUserById 		: 	getUserById,
 	getUserByUserName 	: 	getUserByUserName,
 	auth 				: 	auth,

@@ -7,6 +7,7 @@ var MovieSchema = new Schema({
 	des 			: {type: String},
 	score 			: {type: Number},
 	movie_name 		: {type: String},
+	type 			: {type: String},
 	release_time 	: {type: Date}
 });
 
