@@ -33,7 +33,7 @@ var auth = function(userName, password, callback) {
 }
 
 var newAndSave = function(options, callback) {
-	getUserByUserName(options.userName, function(err, user) {
+	getUserByUserName(options.user_name, function(err, user) {
 		if (err) {
 			return callback(err);
 		}
@@ -52,8 +52,39 @@ var newAndSave = function(options, callback) {
 	});
 }
 
+var updatePassword = function(options, callback) {
+	getUserByUserName(options.user_name, function(err, user) {
+		if (err) {
+			return callback(err);
+		}
+		if (user.password !== options.old_password) {
+			return callback("Wrong password");
+		}
+		user.password = options.password;
+		user.save(callback);
+	});
+}
+
+var updateProfile = function(options, callback) {
+	getUserByUserName(options.user_name, function(err, user) {
+		if (err) {
+			return callback(err);
+		}
+		if (options.email) {
+			user.email = options.email;
+		}
+		if (options.phone_number) {
+			user.phone_number = options.phone_number;
+		}
+		user.save(callback);
+	});
+}
 
 module.exports = {
-	getMovieById 	: 	getMovieById,
-	newAndSave 		: 	newAndSave
+	getUserById 		: 	getUserById,
+	getUserByUserName 	: 	getUserByUserName,
+	auth 				: 	auth,
+	newAndSave 			: 	newAndSave,
+	updatePassword 		: 	updatePassword,
+	updateProfile 		: 	updateProfile
 };
