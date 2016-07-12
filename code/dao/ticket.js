@@ -36,5 +36,5 @@ var removeById = function(id, callback) {
 module.exports = {
 	getTicketById 	 	: 	getTicketById,
 	newAndSave 			: 	newAndSave,
-	verificateById 		: 	verificateById
+	removeById 			: 	removeById
 };

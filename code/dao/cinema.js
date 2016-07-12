@@ -12,7 +12,7 @@ var newAndSave = function(options, callback) {
 	cinema.save(callback);
 };
 
-var findCinemaById = function(id, callback) {
+var getCinemaById = function(id, callback) {
 	Cinema.findOne({_id: id}, function(err, cinema) {
 		if (err) {
 			return callback(err);
@@ -21,7 +21,7 @@ var findCinemaById = function(id, callback) {
 	});
 };
 
-var findAllCinema = function(callback) {
+var getAllCinema = function(callback) {
 	Cinema.find(function(err, cinemas) {
 		if (err) {
 			return callback(err);
@@ -31,7 +31,7 @@ var findAllCinema = function(callback) {
 }
 
 var addScore = function(id, score, callback) {
-	findCinemaById(id, function(err, cinema) {
+	getCinemaById(id, function(err, cinema) {
 		if (err) {
 			return callback(err);
 		}
@@ -42,6 +42,7 @@ var addScore = function(id, score, callback) {
 
 module.exports = {
 	newAndSave 		: 		newAndSave,
-	findCinemaById 	: 		findCinemaById,
+	getCinemaById 	: 		getCinemaById,
+	getAllCinema 	: 		getAllCinema,
 	addScore 		: 		addScore
 };
