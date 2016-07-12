@@ -23,6 +23,7 @@ var newAndSave = function(options, callback) {
 	ticket.save(callback);
 }
 
+var removeById = function(id, callback) {
 	Ticket.remove({_id: id}, function(err) {
 		if (err) {
 			return callback(err);
