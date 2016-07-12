@@ -35,7 +35,7 @@ var auth = function(userName, password, callback) {
 			return callback(err);
 		}
 		if (user.password === password) {
-			return callback(null);
+			return callback(null, user);
 		}
 		return callback("Wrong password");
 	});

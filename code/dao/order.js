@@ -44,10 +44,20 @@ var updateStateById = function(id, state, callback) {
 	});
 }
 
+var removeById = function(id, callback) {
+	Order.remove({_id:id}, function(err) {
+		if (err) {
+			return callback(err);
+		}
+		return callback(null);
+	});
+}
+
 
 module.exports = {
 	newAndSave 				: 		newAndSave,
 	getOrderById 			: 		getOrderById,
 	getAllOrderByUserId 	: 		getAllOrderByUserId,
 	updateStateById 		: 		updateStateById,
+	removeById 				: 		removeById
 };
