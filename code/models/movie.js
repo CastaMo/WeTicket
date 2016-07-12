@@ -8,7 +8,8 @@ var MovieSchema = new Schema({
 	score 			: {type: Number},
 	movie_name 		: {type: String},
 	type 			: {type: Number},
-	release_time 	: {type: Date}
+	release_time 	: {type: Date},
+	duration_time 	: {type: Number}
 });
 
 
