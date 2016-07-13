@@ -19,7 +19,6 @@ var createUser = function(req, res, next) {
 			});
 		}
 		authMiddleWare.gen_session(req.body.user_name, res);
-		return res.redirect("./");
 		return res.json({
 			message: "success"
 		});
@@ -59,7 +58,6 @@ var login = function(req, res, next) {
 			});
 		} else {
 			authMiddleWare.gen_session(user, res);
-			return res.redirect("/");
 			res.json({
 				message 	: "success",
 				user 		: user

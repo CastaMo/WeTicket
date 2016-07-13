@@ -8,7 +8,11 @@ var express 	= require('express'),
 
 module.exports = function(passport) {
 
-	router.get('/', User.testCookie);
+	router.get('/index', User.testCookie);
+
+	router.get('/', function(req, res) {
+		res.redirect("/index");
+	});
 
 	router.post('/test/tx1', User.getAllUsers);
 
@@ -17,6 +21,8 @@ module.exports = function(passport) {
 	router.post('/test/tx3', User.login);
 
 	router.post('/test/tx4', User.updateProfile);
+
+	router.post('/test/tx5', User.updatePassword);
 
 	return router;
 };
