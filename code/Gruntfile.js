@@ -113,12 +113,7 @@ module.exports = function(grunt) {
         copy: {
             test: {
                 cwd: '<%= dirs.lib_path %>',
-                src: [
-                    '<%= dirs.js %>common/*.js',
-                    '<%= dirs.css %>common/*.css',
-                    '<%= dirs.js %>specialCommon/*.js',
-                    '<%= dirs.css %>specialCommon/*.css',
-                ],
+                src: ['<%= dirs.js %>ExtraCommon/*.js'],
                 dest: '<%= dirs.dest_path %>',
                 expand: true
             },
@@ -195,9 +190,16 @@ module.exports = function(grunt) {
                 },
                 pretty: true
             },
-            mainpage: {
+            simulatepay: {
                 files: {
-                    "<%= dirs.dest_path %>mainpage.html": "<%= dirs.source_path %><%= dirs.jade %>mainpage/develop.jade",
+                    "<%= dirs.dest_path %>SimulatePay.html": "<%= dirs.source_path %><%= dirs.jade %>SimulatePay/develop.jade",
+                    "<%= dirs.dest_path %>views/SimulatePay.php": "<%= dirs.source_path %><%= dirs.jade %>SimulatePay/formal.jade"
+                }
+            },
+            couponadd: {
+                files: {
+                    "<%= dirs.dest_path %>CouponAdd.html": "<%= dirs.source_path %><%= dirs.jade %>CouponAdd/develop.jade",
+                    "<%= dirs.dest_path %>views/CouponAdd.php": "<%= dirs.source_path %><%= dirs.jade %>CouponAdd/formal.jade"
                 }
             }
         },
@@ -206,10 +208,16 @@ module.exports = function(grunt) {
                 compress: false,
                 yuicompress: false
             },
-            mainpage: {
+            simulatepay: {
                 files: {
-                    "<%= dirs.dest_path %><%= dirs.css %>mainpage/main.css": "<%= dirs.source_path %><%= dirs.less %>mainpage/main.less",
-                    "<%= dirs.dest_path %><%= dirs.css %>mainpage/base64.css": "<%= dirs.source_path %><%= dirs.less %>mainpage/base64.less"
+                    "<%= dirs.dest_path %><%= dirs.css %>SimulatePay/main.css": "<%= dirs.source_path %><%= dirs.less %>SimulatePay/main.less",
+                    "<%= dirs.dest_path %><%= dirs.css %>SimulatePay/base64.css": "<%= dirs.source_path %><%= dirs.less %>SimulatePay/base64.less"
+                }
+            },
+            couponadd: {
+                files: {
+                    "<%= dirs.dest_path %><%= dirs.css %>CouponAdd/main.css": "<%= dirs.source_path %><%= dirs.less %>CouponAdd/main.less",
+                    "<%= dirs.dest_path %><%= dirs.css %>CouponAdd/base64.css": "<%= dirs.source_path %><%= dirs.less %>CouponAdd/base64.less"
                 }
             }
         },
@@ -219,37 +227,64 @@ module.exports = function(grunt) {
                 join: true,
                 flatten: true
             },
-            mainpage: {
+            simulatepay: {
                 expand: true,
-                cwd: '<%= dirs.source_path %><%= dirs.ls %>mainpage/',
-                src: ['**/*.ls'],
-                dest: '<%= dirs.dest_path %><%= dirs.js %>mainpage/',
+                cwd: '<%= dirs.source_path %><%= dirs.ls %>SimulatePay/',
+                src: ['*.ls'],
+                dest: '<%= dirs.dest_path %><%= dirs.js %>SimulatePay/',
+                ext: '.js'
+            },
+            couponadd: {
+                expand: true,
+                cwd: '<%= dirs.source_path %><%= dirs.ls %>CouponAdd/',
+                src: ['*.ls'],
+                dest: '<%= dirs.dest_path %><%= dirs.js %>CouponAdd/',
                 ext: '.js'
             }
         },
         browserify: {
-            mainpage: {
+            simulatepay: {
                 files: {
-                    "<%= dirs.dest_path %><%= dirs.js %>mainpage/main.js": ["<%= dirs.dest_path %><%= dirs.js %>mainpage/index.js"]
+                    "<%= dirs.dest_path %><%= dirs.js %>SimulatePay/main.js": ["<%= dirs.dest_path %><%= dirs.js %>SimulatePay/index.js"]
+                }
+            },
+            couponadd: {
+                files: {
+                    "<%= dirs.dest_path %><%= dirs.js %>CouponAdd/main.js": ["<%= dirs.dest_path %><%= dirs.js %>CouponAdd/index.js"]
                 }
             }
         },
         watch: {
-            mainpage: {
+            simulatepay: {
                 options: {
                     livereload: lrPort,
                     debounceDelay: debounceDelay
                 },
                 files: [
-                    '<%= dirs.source_path %>**/mainpage/**/**',
+                    '<%= dirs.source_path %>**/SimulatePay/**/**',
                 ],
                 tasks: [
-                    'less:mainpage',
-                    'livescript:mainpage',
-                    'browserify:mainpage',
-                    'jade:mainpage'
+                    'less:simulatepay',
+                    'livescript:simulatepay',
+                    'browserify:simulatepay',
+                    'jade:simulatepay'
                 ]
             },
+            couponadd: {
+                options: {
+                    livereload: lrPort,
+                    debounceDelay: debounceDelay
+                },
+                files: [
+                    '<%= dirs.source_path %>**/CouponAdd/**/**',
+                ],
+                tasks: [
+                    'less:couponadd',
+                    'livescript:couponadd',
+                    'browserify:couponadd',
+                    'jade:couponadd'
+                ]
+            }
         },
 
         hashmap: {
