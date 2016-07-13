@@ -1,6 +1,7 @@
 @import "../common";
 
 #mainpage {
+    display: none;
     background-color: #FFFFFF;
     font-family: Hiragino Sans GB, Microsoft Yahei, sans-serif;
     #mainpage-wrapper {
@@ -8,13 +9,18 @@
             #top-container {
                 height: 70px;
                 background-color: #4A4A4A;
+                .logo {
+                    margin: 20px 0 0 200px;
+                    float: left;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    width: 78px;
+                    height: 31px;
+                }
                 .user {
-                    position: relative;
-                    right: 256px;
-                    line-height: 70px;
+                    margin: 20px 256px 0 0;
                     color: #FFFFFF;
                     float: right;
-                    clear: left;
                     .login-btn,
                     .txt,
                     .register-btn {
@@ -53,8 +59,8 @@
                     margin-right: 30px; 
                     float: left;
                     select {
-                        color: #4A4A4A;
-                        border: solid 1px #4A4A4A;
+                        color: #8D8D8D;
+                        border: solid 1px #8D8D8D;
                         width: 160px;
                         height: 40px;
                     }
@@ -99,4 +105,21 @@
             }
         }
     }
+}
+#full-cover {
+    position: fixed;
+    z-index: 200;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    .full-cover-container,
+    .full-cover-wrapper {
+        height: 100%;
+        width: 100%;
+    }
+    .full-cover-container {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
 }
