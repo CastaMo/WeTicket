@@ -2,6 +2,7 @@
 
 var express 		= require('express');
 var app 			= express();
+var path 			= require("path");
 var logger 			= require('morgan');
 var bodyParser 		= require('body-parser');
 var cookieParser 	= require('cookie-parser');
@@ -20,7 +21,7 @@ app.use(bodyParser.urlencoded({            //此项必须在 bodyParser.json 下
 app.use(cookieParser(config.session_secret));
 
 app.use(express.static('bin'));
-app.set('views', './src/jade');
+app.set('views', path.join(__dirname, 'src/jade'));
 app.set('view engine', 'jade');
 
 

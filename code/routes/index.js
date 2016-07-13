@@ -8,13 +8,11 @@ var express 	= require('express'),
 
 module.exports = function(passport) {
 
-	router.get('/index', function(req, res, next) {
-		res.render("./mainpage/develop");
-	});
-
 	router.get('/', function(req, res) {
 		res.redirect("/index");
 	});
+
+	router.get('/index', User.showMain);
 
 	router.post('/test/tx1', User.getAllUsers);
 

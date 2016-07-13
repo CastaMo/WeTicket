@@ -66,7 +66,7 @@ var login = function(req, res, next) {
 	});
 }
 
-var testCookie = function(req, res, next) {
+var showMain = function(req, res, next) {
 	var cookie = parseCookie(req.headers.cookie),
 		user_name;
 	if (user_name = cookie.user_name) {
@@ -76,13 +76,15 @@ var testCookie = function(req, res, next) {
 				res.send("err: " + err);
 			} else {
 				console.log(user);
-				res.send(	"welcome: " 	+ user.user_name 	+ "<br>" +
-							"email: " 		+ user.email 		+ "<br>" +
-							"phone_number :"+ user.phone_number + "<br>");
+				res.render("mainpage/develop", {
+					allData : JSON.stringify({
+						user 	: 	user
+					})
+				});
 			}
 		});
 	} else {
-		res.send('hello world');
+		res.render("mainpage/develop");
 	}
 }
 
@@ -92,5 +94,5 @@ module.exports = {
 	updatePassword 	: 	updatePassword,
 	updateProfile 	: 	updateProfile,
 	login 			: 	login,
-	testCookie 		: 	testCookie
+	showMain 		: 	showMain
 };
