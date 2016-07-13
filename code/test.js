@@ -20,3 +20,21 @@ util.ajax({
 	type:"POST",
 	data: JSON.stringify(b)
 });
+
+var c = [
+	{
+		a : "s",
+		b : "s",
+		c : "s" // 最后一个键值不要逗号
+	},
+	{
+		a : "s",
+		b : "s",
+		c : "s"
+	},
+	{
+		a : "s",
+		b : "s",
+		c : "s"
+	} // 最后一个对象不要逗号
+]
