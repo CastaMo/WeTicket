@@ -12,10 +12,10 @@ var config = {
     // mongodb配置
     db: "mongodb://127.0.0.1/WeTicket",
     
-    session_secret: 'WeTicket', // 务必修改
-    auth_cookie_name: 'WeTicket',
 
     port: 8888,
+
+    session_secret: 'WeTicket', // 务必修改
 
     // redis 配置，默认是本地
     redis_host: '127.0.0.1',

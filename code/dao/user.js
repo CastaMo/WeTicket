@@ -76,6 +76,7 @@ var updatePassword = function(options, callback) {
 
 var updateProfile = function(options, callback) {
 	getUserByUserName(options.user_name, function(err, user) {
+		console.log(options);
 		if (err) {
 			return callback(err);
 		}
