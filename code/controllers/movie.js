@@ -27,6 +27,20 @@ var getAllMovies = function(req, res, next) {
 	});
 }
 
+var removeAll = function(req, res, next) {
+	Movie.removeAll(function(err) {
+		if (err) {
+			res.json({
+				message: err
+			});
+		} else {
+			res.json({
+				message: "success"
+			});
+		}
+	});
+}
+
 var getMoviesByType = function(req, res, next) {
 	var type = req.body.type;
 	Movie.getMoviesByType(type, function(err, movies) {
@@ -47,6 +61,7 @@ var getMoviesByType = function(req, res, next) {
 module.exports = {
 	createMoive 	: 	createMoive,
 	getAllMovies 	: 	getAllMovies,
-	getMoviesByType : 	getMoviesByType
+	getMoviesByType : 	getMoviesByType,
+	removeAll 		: 	removeAll
 };
 

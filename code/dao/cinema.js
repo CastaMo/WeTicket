@@ -1,6 +1,6 @@
 var EventProxy 	= require("eventproxy"),
 	models 		= require("../models"),
-	Cinema 		= models.cinema;
+	Cinema 		= models.Cinema;
 
 var newAndSave = function(options, callback) {
 	var cinema 			= new Cinema();

@@ -36,16 +36,24 @@ var getMoviesByType = function(type, callback) {
 	});
 }
 
+var removeAll = function(callback) {
+	Movie.remove(function(err) {
+		if (err) {
+			return callback(err);
+		}
+		return callback(null);
+	});
+}
+
 var newAndSave = function(options, callback) {
 	var movie 			= new Movie();
 
 	movie.url			= options.url;
 	movie.des 			= options.des;
-	movie.score 		= options.score;
 	movie.movie_name 	= options.movie_name;
 	movie.release_time 	= options.release_time;
-	movie.duration_time = options.duration_time;
-	movie.type 			= options.type;
+	movie.duration_time = Number(options.duration_time);
+	movie.type 			= Number(options.type);
 
 	movie.save(callback);
 }
@@ -56,5 +64,6 @@ module.exports = {
 	getMovieById 	: 	getMovieById,
 	getAllMovies 	: 	getAllMovies,
 	getMoviesByType : 	getMoviesByType,
-	newAndSave 		: 	newAndSave
+	newAndSave 		: 	newAndSave,
+	removeAll 		: 	removeAll
 };
