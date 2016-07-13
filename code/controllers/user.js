@@ -1,5 +1,7 @@
 var EventProxy 		= require("eventproxy"),
 	dao 			= require("../dao"),
+	authMiddleWare 	= require('../middlewares/auth'),
+	parseCookie 	= require("../common/parseCookie"),
 	User			= dao.User;
 
 
@@ -16,6 +18,7 @@ var createUser = function(req, res, next) {
 				message: err
 			});
 		}
+		authMiddleWare.gen_session(req.body.user_name, res);
 		return res.json({
 			message: "success"
 		});
@@ -54,6 +57,7 @@ var login = function(req, res, next) {
 				message 	: err
 			});
 		} else {
+			authMiddleWare.gen_session(user, res);
 			res.json({
 				message 	: "success",
 				user 		: user
@@ -62,10 +66,31 @@ var login = function(req, res, next) {
 	});
 }
 
+var testCookie = function(req, res, next) {
+	var cookie = parseCookie(req.headers.cookie),
+		user_name;
+	if (user_name = cookie.user_name) {
+		User.getUserByUserName(user_name, function(err, user) {
+			if (err || !user) {
+				res.cookie("user_name", "");
+				res.send("err: " + err);
+			} else {
+				console.log(user);
+				res.send(	"welcome: " 	+ user.user_name 	+ "<br>" +
+							"email: " 		+ user.email 		+ "<br>" +
+							"phone_number :"+ user.phone_number + "<br>");
+			}
+		});
+	} else {
+		res.send('hello world');
+	}
+}
+
 module.exports = {
 	getAllUsers 	: 	getAllUsers,
 	createUser 		: 	createUser,
 	updatePassword 	: 	updatePassword,
-	updateProfile 	: 	updateProfile
-	login 			: 	login
+	updateProfile 	: 	updateProfile,
+	login 			: 	login,
+	testCookie 		: 	testCookie
 };
