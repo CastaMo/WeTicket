@@ -4,6 +4,8 @@ var express 	= require('express'),
 	app 		= express(),
 	router 		= express.Router(),
 	User 		= require("../controllers/user"),
+	Cinema 		= require("../controllers/cinema"),
+	Movie 		= require("../controllers/movie"),
 	parseCookie = require("../common/parseCookie");
 
 module.exports = function(passport) {
@@ -28,7 +30,11 @@ module.exports = function(passport) {
 
 	router.post('/test/tx5', User.updatePassword);
 
+	router.post('/test/tx6', Cinema.createCinema);
 
+	router.post('/test/tx7', Movie.createMoive);
+
+	router.post('/test/tx8', Movie.removeAll);
 
 	
 

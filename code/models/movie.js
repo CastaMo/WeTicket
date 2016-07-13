@@ -5,10 +5,9 @@
 var MovieSchema = new Schema({
 	url 			: {type: String},
 	des 			: {type: String},
-	score 			: {type: Number},
 	movie_name 		: {type: String},
 	type 			: {type: Number},
-	release_time 	: {type: Date},
+	release_time 	: {type: String},
 	duration_time 	: {type: Number}
 });
 

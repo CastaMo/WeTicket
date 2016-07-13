@@ -3,6 +3,8 @@ var EventProxy 		= require("eventproxy"),
 	authMiddleWare 	= require('../middlewares/auth'),
 	parseCookie 	= require("../common/parseCookie"),
 	User			= dao.User;
+	Cinema 			= dao.Cinema;
+	Movie	 		= dao.Movie;
 
 
 var getAllUsers = function(req, res, next) {
@@ -67,25 +69,63 @@ var login = function(req, res, next) {
 }
 
 var showMain = function(req, res, next) {
-	var cookie = parseCookie(req.headers.cookie),
+	var cookie 		= parseCookie(req.headers.cookie),
+		allData 	= {},
+		signal 		= 3,
+		err_flag 	= false,
 		user_name;
+
+	var integrateCallback = function() {
+		signal--;
+		if (signal > 0) return;
+		if (err_flag) {
+			res.render("mainpage/develop", {
+				mainJSON : JSON.stringify({
+					message: "fail"
+				})
+			});
+		} else {
+			res.render("mainpage/develop", {
+				mainJSON : JSON.stringify({
+					message: "success",
+					allData: allData
+				})
+			})
+		}
+	}
+
 	if (user_name = cookie.user_name) {
 		User.getUserByUserName(user_name, function(err, user) {
 			if (err || !user) {
 				res.cookie("user_name", "");
-				res.send("err: " + err);
+				err_flag = true;
 			} else {
-				console.log(user);
-				res.render("mainpage/develop", {
-					allData : JSON.stringify({
-						user 	: 	user
-					})
-				});
+				allData.user = user;
 			}
+			integrateCallback();
 		});
 	} else {
-		res.render("mainpage/develop");
+		integrateCallback();
 	}
+
+	Cinema.getAllCinema(function(err, cinemas) {
+		if (err) {
+			err_flag = true;
+		} else {
+			allData.cinema = cinemas[0];
+		}
+		integrateCallback();
+	});
+
+	Movie.getAllMovies(function(err, movies) {
+		if (err) {
+			err_flag = true;
+		} else {
+			allData.movies = movies;
+		}
+		integrateCallback();
+	});
+
 }
 
 module.exports = {

@@ -1,6 +1,6 @@
 var a = {
-	user_name : "502442134",
-	password: "502442134",
+	user_name : "user",
+	password: "pass",
 	email: "502442134@qq.com",
 	phone_number: 18819473259
 };
@@ -10,31 +10,15 @@ util.ajax({
 	data: JSON.stringify(a)
 });
 
-var b = {
-	user_name: "502442134",
-	old_password: "scau19950316",
-	password: "502442134"
-};
-util.ajax({
-	url: "/test/tx5",
-	type:"POST",
-	data: JSON.stringify(b)
-});
 
-var c = [
-	{
-		a : "s",
-		b : "s",
-		c : "s" // 最后一个键值不要逗号
-	},
-	{
-		a : "s",
-		b : "s",
-		c : "s"
-	},
-	{
-		a : "s",
-		b : "s",
-		c : "s"
-	} // 最后一个对象不要逗号
-]
+
+var c = {
+	cinema_name : "广州金逸珠江国际影城",
+	address 	: "小谷街道贝岗村中二横路1号GOGO新天地商业广场",
+	scores 		: [5, 5]
+}
+util.ajax({
+	url: "/test/tx6",
+	type:"POST",
+	data: JSON.stringify(c)
+});
