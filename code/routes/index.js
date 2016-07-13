@@ -26,5 +26,9 @@ module.exports = function(passport) {
 
 	router.post('/test/tx5', User.updatePassword);
 
+
+
+	
+
 	return router;
 };
