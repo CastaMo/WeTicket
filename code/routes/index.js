@@ -20,6 +20,14 @@ module.exports = function(passport) {
 
 	router.get('/index', User.showMain);
 
+	router.post('/User/Signup', User.createUser);
+
+	router.post('/User/Login', User.login);
+
+	router.post('/User/Update/Profile', User.updateProfile);
+
+	router.post('/User/Update/Password', User.updatePassword);
+
 	router.post('/test/tx1', User.getAllUsers);
 
 	router.post('/test/tx2', User.createUser);
