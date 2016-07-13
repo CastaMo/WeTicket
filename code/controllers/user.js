@@ -14,13 +14,13 @@ var getAllUsers = function(req, res, next) {
 }
 
 var createUser = function(req, res, next) {
-	User.newAndSave(req.body, function(err) {
+	User.newAndSave(req.body, function(err, user) {
 		if (err) {
 			return res.json({
 				message: err
 			});
 		}
-		authMiddleWare.gen_session(req.body.user_name, res);
+		authMiddleWare.gen_session(user, res);
 		return res.json({
 			message: "success"
 		});
