@@ -1,8 +1,6 @@
 @import "../common";
 
 #mainpage {
-    display: none;
-    background-color: #FFFFFF;
     font-family: Hiragino Sans GB, Microsoft Yahei, sans-serif;
     #mainpage-wrapper {
         #mainpage-container {
@@ -24,6 +22,8 @@
                     .login-btn,
                     .txt,
                     .register-btn {
+                        line-height: 32px;
+                        padding: 0;
                         float: left;
                     }
                     .txt {
@@ -36,7 +36,7 @@
                 height: 600px;
                 margin: 30px 0 0 200px;
                 .release-title {
-                    height: 36px;
+                    height: 47px;
                     color: #4A4A4A;
                     font-size: 36px;
                     p {
@@ -46,6 +46,102 @@
                         margin-top: 20px;
                         float: right;
                         font-size: 14px;
+                    }
+                }
+                .release-movie {
+                    .release-movie-left {
+                        position: relative;
+                        float: left;
+                        margin-top: 30px;
+                        .single-release-movie {
+                            width: 310px;
+                            .single-release-movie-img {
+                                height: 308px;
+                                width: 230px;
+                                background-color: #8D8D8D;
+                            }
+                            .single-release-movie-title {
+                                margin: 15px 0 10px 10px;
+                                font-size: 18px;
+                                font-weight: bold;
+                            }
+                            .single-release-movie-information {
+                                margin-left: 10px;
+                                font-size: 12px;
+                            }
+                            .single-release-movie-detail {
+                                margin: 15px 30px 0 0;
+                                text-align: center;
+                                font-size: 14px;
+                                height: 32px;
+                                width: 68px;
+                                border-radius: 5px;
+                                border: solid 1px #8D8D8D;
+                            }
+                            .single-release-movie-purchase {
+                                margin: 15px 0 0 0;
+                                background-color: #1E7DA5;
+                                border-radius: 5px;
+                                text-align: center;
+                                height: 32px;
+                                width: 68px;
+                                color: #FFFFFF;
+                                border: solid 1px #1E7DA5;
+                            }
+                        }
+                    }
+                    .release-movie-right {
+                        float: right;
+                        width: 570px;
+                        height: 400px;
+                        margin: 30px 0 0 0;
+                        .single-release-movie {
+                            position: relative;
+                            float: left;
+                            width: 220px;
+                            margin: 0 65px 20px 0;
+                            .single-release-movie-img {
+                                float: left;
+                                height: 140px;
+                                width: 100px;
+                                background-color: #8D8D8D;
+                            }
+                            .single-release-movie-title {
+                                float: left;
+                                margin: 0 0 0 20px;
+                                font-size: 18px;
+                                font-weight: bold;
+                            }
+                            .single-release-movie-time {
+                                float: left;
+                                width: 80px;
+                                margin: 8px 0 0 20px;
+                                font-size: 12px;
+                            }
+                            .single-release-movie-type {
+                                float: left;
+                                width: 80px;
+                                margin: 8px 0 0 20px;
+                                font-size: 12px;
+                            }
+                            .single-release-movie-detail {
+                                cursor: pointer;
+                                float: left;
+                                margin: 10px 0 0 20px;
+                                width: 80px;
+                                color: #8D8D8D;
+                                font-size: 10px;
+                            }
+                            .single-release-movie-purchase {
+                                margin: 10px 0 0 20px;
+                                background-color: #1E7DA5;
+                                border-radius: 5px;
+                                text-align: center;
+                                height: 32px;
+                                width: 68px;
+                                color: #FFFFFF;
+                            }
+                        }
                     }
                 }
             }
@@ -68,10 +164,10 @@
             }
             #soon-container {
                 width: 900px;
-                height: 600px;
+                height: 700px;
                 margin: 30px 0 0 200px;
                 .soon-title {
-                    height: 36px;
+                    height: 47px;
                     color: #4A4A4A;
                     font-size: 36px;
                     p {
@@ -81,6 +177,51 @@
                         margin-top: 20px;
                         float: right;
                         font-size: 14px;
+                    }
+                }
+                .soon-movie {
+                    height: 900px;
+                    .single-soon-movie {
+                        position: relative;
+                        float: left;
+                        width: 200px;
+                        margin-top: 30px;
+                        margin-right: 20px;
+                        .single-soon-movie-img {
+                            margin-left: 20px;
+                            float: left;
+                            height: 140px;
+                            width: 100px;
+                            background-color: #8D8D8D;
+                        }
+                        .single-soon-movie-title {
+                            margin-top: 10px;
+                            text-align: center;
+                            float: left;
+                            width: 140px;
+                            font-size: 18px;
+                            font-weight: bold;
+                        }
+                        .single-soon-movie-infomation {
+                            float: left;
+                            width: 200px;
+                            margin: 8px 0 0 10px;
+                            font-size: 12px;
+                        }
+                        .single-soon-movie-date {
+                            float: left;
+                            width: 200px;
+                            margin: 8px 0 0 10px;
+                            font-size: 12px;
+                        }
+                        .single-soon-movie-detail {
+                            cursor: pointer;
+                            float: left;
+                            margin: 10px 0 0 10px;
+                            width: 200px;
+                            color: #8D8D8D;
+                            font-size: 10px;
+                        }
                     }
                 }
             }
@@ -106,20 +247,739 @@
         }
     }
 }
-#full-cover {
+#log {
+    display: none;
+    font-family: Hiragino Sans GB, Microsoft Yahei, sans-serif;
+    font-size: 14px;
     position: fixed;
     z-index: 200;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    .full-cover-container,
-    .full-cover-wrapper {
+    .log-container,
+    .log-wrapper {
         height: 100%;
         width: 100%;
     }
-    .full-cover-container {
+    .log-container {
         background-color: rgba(0, 0, 0, 0.6);
     }
-
+    .register-field {
+        display: none;
+        position: fixed;
+        left: 400px;
+        top: 200px;
+        height: 350px;
+        width: 480px;
+        background-color: #FFFFFF;
+        .img-field {
+            .person-logo {
+                margin: 7px 0 0 200px;
+                background-color: red;
+                height: 81px;
+                width: 81px;
+            }
+            .close-btn {
+                cursor: pointer;
+                margin: 15px 0 0 445px;
+                background-color: blue;
+                height: 20px;
+                width: 20px;
+            }
+        }
+        .user-field {
+            margin: 30px 0 0 60px;
+            .user-name,
+            .user-password {
+                float: left;
+                margin-bottom: 20px;
+            }
+            .user-name-logo,
+            .user-password-logo {
+                margin: 1px;
+                position: relative;
+                left: 30px;
+                display: inline-block;
+                background-color: green;
+                height: 30px;
+                width: 30px;
+                vertical-align: bottom;
+            }
+            input {
+                float: right;
+                color: #8D8D8D;
+                border: solid 1px #8D8D8D;
+                height: 32px;
+                width: 300px;
+                padding-left: 50px;
+            }
+        }
+        .register-click {
+            cursor: pointer;
+            margin-left: 90px;
+            text-align: center;
+            line-height: 32px;
+            color: #FFFFFF;
+            float: left;
+            width: 302px;
+            height: 32px;
+            background-color: #1E7DA5;
+            border-radius: 5px;
+        }
+        .login-click {
+            cursor: pointer;
+            font-size: 14px;
+            margin: 15px 0 0 362px;
+            color: #1E7DA5;
+            float: left;
+        }
+    }
+    .login-field {
+        display: none;
+        position: fixed;
+        left: 400px;
+        top: 200px;
+        height: 350px;
+        width: 480px;
+        background-color: #FFFFFF;
+        .img-field {
+            .person-logo {
+                margin: 7px 0 0 200px;
+                background-color: red;
+                height: 81px;
+                width: 81px;
+            }
+            .close-btn {
+                cursor: pointer;
+                margin: 15px 0 0 445px;
+                background-color: blue;
+                height: 20px;
+                width: 20px;
+            }
+        }
+        .user-field {
+            margin: 0 0 0 60px;
+            .user-name,
+            .user-password {
+                float: left;
+                margin-top: 20px;
+            }
+            .user-name-logo,
+            .user-password-logo {
+                margin: 1px;
+                position: relative;
+                left: 30px;
+                display: inline-block;
+                background-color: green;
+                height: 30px;
+                width: 30px;
+                vertical-align: bottom;
+            }
+            input {
+                float: right;
+                color: #8D8D8D;
+                border: solid 1px #8D8D8D;
+                height: 32px;
+                width: 300px;
+                padding-left: 50px;
+            }
+        }
+        .miss-password {
+            cursor: pointer;
+            color: #8D8D8D;
+            margin: 15px 0 15px 90px;
+            width: 302px;
+            height: 14px;
+            float: left;
+        }
+        .login-click {
+            cursor: pointer;
+            margin-left: 90px;
+            text-align: center;
+            line-height: 32px;
+            color: #FFFFFF;
+            float: left;
+            width: 302px;
+            height: 32px;
+            background-color: #1E7DA5;
+            border-radius: 5px;
+        }
+        .register-click {
+            cursor: pointer;
+            margin: 15px 0 0 334px;
+            color: #1E7DA5;
+            float: left;
+        }
+    }
+}
+#detail {
+    display: none;
+    #detail-wrapper {
+        height: 900px;
+        color: #4A4A4A;
+        #detail-container {
+            margin: 50px 0 0 200px;
+            height: 800px;
+            width: 900px;
+            background-color: #FFFFFF;
+            border: solid 1px #C8C7CC;
+            .return-btn {
+                float: left;
+                font-size: 14px;
+                margin: 30px 0 0 50px;
+                text-align: center;
+                height: 32px;
+                width: 100px;
+                border: solid 1px #C8C7CC;
+            }
+            .detail-title {
+                margin: 40px 0 0 50px;
+                width: 800px;
+                float: left;
+                font-size: 20px;
+                font-weight: bold;
+            }
+            .detail-content {
+                float: left;
+                width: 800px;
+                height: 400px;
+                margin: 30px 0 0 50px;
+                .detail-img {
+                    float: left;
+                    background-color: #4A4A4A;
+                    height: 308px;
+                    width: 230px;
+                }
+                .detail-information {
+                    float: left;
+                    width: 520px;
+                    height: 308px;
+                    margin-left: 30px;
+                    .information-title {
+                        margin-top: 20px;
+                        font-size: 20px;
+                        font-weight: bold;
+                    }
+                    .information-date,
+                    .information-info {
+                        font-size: 14px;
+                        margin-top: 10px;
+                    }
+                    .information-des {
+                        font-size: 16px;
+                        margin-top: 10px;
+                    }
+                    .de-purchase-btn {
+                        margin-top: 40px;
+                        background-color: #1E7DA5;
+                        border-radius: 5px;
+                        text-align: center;
+                        height: 32px;
+                        width: 68px;
+                        color: #FFFFFF;
+                    }
+                }
+            }
+        }
+    }
+}
+#person {
+    display: none;
+    #person-wrapper {
+        height: 900px;
+        color: #4A4A4A;
+        #person-container {
+            margin: 50px 0 0 200px;
+            height: 240px;
+            width: 900px;
+            background-color: #FFFFFF;
+            border: solid 1px #C8C7CC;
+            .person-name {
+                margin: 50px 0 0 50px;
+                font-size: 18px;
+                ._modify-person {
+                    margin-left: 10px;
+                    color: #1E7DA5;
+                    font-size: 10px;
+                }
+            }
+            .person-info {
+                .person-img {
+                    float: left;
+                    margin: 20px 0 0 50px;
+                    background-color: #4A4A4A;
+                    height: 100px;
+                    width: 100px;
+                }
+                .person-email,
+                .person-phone,
+                .person-password {
+                    width: 500px;
+                    float: left;
+                    font-size: 14px;
+                    margin: 20px 0 0 30px;
+                }
+                ._modify-password {
+                    color: #1E7DA5;
+                }
+            }
+        }
+        #personal-ticket {
+            margin: 30px 0 0 200px;
+            height: 600px;
+            width: 900px;
+            background-color: #FFFFFF;
+            border: solid 1px #C8C7CC;
+            .personal-ticket-title {
+                font-size: 18px;
+                margin: 50px 0 0 50px;
+            }
+            .personal-ticket-content {
+                margin: 30px 0 0 50px;
+                font-size: 14px;
+                .personal-ticket-single {
+                    float: left;
+                    margin: 0 30px 30px 0;
+                    height: 210px;
+                    width: 250px;
+                    border: solid 1px #C8C7CC;
+                    .personal-ticket-single-name {
+                        margin: 10px 0 0 10px;
+                        font-size: 16px;
+                    }
+                    .personal-ticket-single-img {
+                        float: right;
+                        background-color: #4A4A4A;
+                        margin: 10px 10px 0 0;
+                        height: 50px;
+                        width: 50px;
+                    }
+                    .personal-ticket-single-time {
+                        font-size: 12px;
+                        margin: 20px 0 10px 10px;
+                    }
+                    .personal-ticket-single-cinema,
+                    .personal-ticket-single-seat,
+                    .personal-ticket-single-feel {
+                        margin: 0 10px 10px 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+#personal {
+    display: none;
+    font-family: Hiragino Sans GB, Microsoft Yahei, sans-serif;
+    font-size: 14px;
+    position: fixed;
+    z-index: 200;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    .personal-container,
+    .personal-wrapper {
+        height: 100%;
+        width: 100%;
+    }
+    .personal-container {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+    .personal-content {
+        position: fixed;
+        left: 350px;
+        top: 100px;
+        height: 500px;
+        width: 650px;
+        background-color: #FFFFFF;
+        .close-btn {
+            cursor: pointer;
+            margin: 15px 0 0 610px;
+            background-color: blue;
+            height: 20px;
+            width: 20px;
+        }
+       .personal-title {
+            margin: 55px 0 0 250px;
+            font-size: 18px;
+        }
+        .personal-ticket-pre {
+            float: left;
+            margin: 30px 20px 30px 65px;
+            height: 210px;
+            width: 250px;
+            border: solid 1px #C8C7CC;
+            .personal-ticket-pre-name {
+                margin: 10px 0 0 10px;
+                font-size: 16px;
+            }
+            .personal-ticket-pre-img {
+                float: right;
+                background-color: #4A4A4A;
+                margin: 10px 10px 0 0;
+                height: 50px;
+                width: 50px;
+            }
+            .personal-ticket-pre-time {
+                font-size: 12px;
+                margin: 20px 0 10px 10px;
+            }
+            .personal-ticket-pre-cinema,
+            .personal-ticket-pre-seat,
+            .personal-ticket-pre-feel {
+                margin: 0 10px 10px 10px;
+            }
+        }
+        .personal-ticket-now {
+            float: left;
+            margin: 30px 30px 30px 0;
+            height: 210px;
+            width: 250px;
+            border: solid 1px #C8C7CC;
+            .personal-picture,
+            .personal-QRcode,
+            .personal-feel {
+                margin: 20px 0 0 20px;
+                ._tip {
+                    float: left;
+                    width: 75px;
+                }
+                input {
+                    padding: 0 5px;
+                    width: 135px;
+                    height: 100px;
+                    border: solid 1px #C8C7CC;
+                }
+                ._picture,
+                ._QRcode {
+                    color: #1E7DA5;
+                }
+            }
+        }
+        .btn-field {
+            margin: 60px 0 0 175px;
+            .cancel-btn {
+                margin-right: 60px;
+                text-align: center;
+                height: 32px;
+                width: 88px;
+                border: solid 1px #C8C7CC;
+                color: #4A4A4A;
+            }
+            .next-btn {
+                background-color: #1E7DA5;
+                text-align: center;
+                height: 32px;
+                width: 88px;
+                border: solid 1px #1E7DA5;
+                color: #FFFFFF;
+            }
+        }
+    }
+}
+#purchase {
+    display: none;
+    font-family: Hiragino Sans GB, Microsoft Yahei, sans-serif;
+    font-size: 14px;
+    position: fixed;
+    z-index: 200;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    .purchase-container,
+    .purchase-wrapper {
+        height: 100%;
+        width: 100%;
+    }
+    .purchase-container {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+    .choose-season {
+        display: none;
+        position: fixed;
+        left: 350px;
+        top: 100px;
+        height: 500px;
+        width: 650px;
+        background-color: #FFFFFF;
+        .close-btn {
+            cursor: pointer;
+            margin: 15px 0 0 610px;
+            background-color: blue;
+            height: 20px;
+            width: 20px;
+        }
+        .choose-season-title {
+            margin: 55px 0 0 225px;
+            font-size: 18px;
+        }
+        select {
+            font-family: Hiragino Sans GB, Microsoft Yahei, sans-serif;
+            padding-left: 5px;
+            margin: 40px 0 0 170px;
+            height: 40px;
+            width: 300px;
+            border: none;
+            color: #8D8D8D;
+            background-color: #F4F5F9;
+        }
+        .btn-field {
+            margin: 60px 0 0 175px;
+            .cancel-btn {
+                margin-right: 60px;
+                text-align: center;
+                height: 32px;
+                width: 88px;
+                border: solid 1px #C8C7CC;
+                color: #4A4A4A;
+            }
+            .next-btn {
+                background-color: #1E7DA5;
+                text-align: center;
+                height: 32px;
+                width: 88px;
+                border: solid 1px #1E7DA5;
+                color: #FFFFFF;
+            }
+        }
+    }
+    .choose-seat {
+        display: none;
+        position: fixed;
+        left: 350px;
+        top: 100px;
+        height: 500px;
+        width: 650px;
+        background-color: #FFFFFF;
+        .close-btn {
+            cursor: pointer;
+            margin: 15px 0 0 610px;
+            background-color: blue;
+            height: 20px;
+            width: 20px;
+        }
+        .choose-seat-title {
+            margin: 10px 0 0 270px;
+            font-size: 18px;
+        }
+        .choose-seat-tip {
+            height: 14px;
+            width: 220px;
+            background-color: #4A4A4A;
+            margin: 25px 0 0 210px;
+        }
+        .choose-seat-screen {
+            margin: 20px 0 0 75px;
+            width: 500px;
+            height: 270px;
+            border: solid 1px #C8C7CC;
+            .choose-seat-screen-font {
+                line-height: 30px;
+                text-align: center;
+                margin: 20px 0 0 150px;
+                height: 30px;
+                width: 200px;
+                color: #FFFFFF;
+                background-color: #FFC107;
+            }
+            .choose-seat-screen-seat {
+                margin: 20px 0 0 150px;
+                width: 210px;
+                height: 150px;
+                input {
+                    width: 14px;
+                    height: 14px;
+                    margin-right: 7px;
+                    margin-top: 5px;
+                }
+            }
+        }
+        .btn-field {
+            margin: 30px 0 0 175px;
+            .cancel-btn {
+                margin-right: 60px;
+                text-align: center;
+                height: 32px;
+                width: 88px;
+                border: solid 1px #C8C7CC;
+                color: #4A4A4A;
+            }
+            .next-btn {
+                background-color: #1E7DA5;
+                text-align: center;
+                height: 32px;
+                width: 88px;
+                border: solid 1px #1E7DA5;
+                color: #FFFFFF;
+            }
+        }
+    }
+    .unlogin-purchase {
+        display: none;
+        position: fixed;
+        left: 350px;
+        top: 100px;
+        height: 500px;
+        width: 650px;
+        background-color: #FFFFFF;
+        .close-btn {
+            cursor: pointer;
+            margin: 15px 0 0 610px;
+            background-color: blue;
+            height: 20px;
+            width: 20px;
+        }
+        .unlogin-purchase-title {
+            margin: 100px 0 0 270px;
+            font-size: 18px;
+        }
+        input {
+            margin: 60px 0 0 125px;
+            padding-left: 5px;
+            color: #4A4A4A;
+            border: solid 1px #C8C7CC;
+            height: 32px;
+            width: 400px;
+        }
+        .btn-field {
+            margin: 100px 0 0 175px;
+            .cancel-btn {
+                margin-right: 60px;
+                text-align: center;
+                height: 32px;
+                width: 88px;
+                border: solid 1px #C8C7CC;
+                color: #4A4A4A;
+            }
+            .next-btn {
+                background-color: #1E7DA5;
+                text-align: center;
+                height: 32px;
+                width: 88px;
+                border: solid 1px #1E7DA5;
+                color: #FFFFFF;
+            }
+        }
+    }
+    .login-purchase {
+        display: none;
+        position: fixed;
+        left: 350px;
+        top: 100px;
+        height: 500px;
+        width: 650px;
+        background-color: #FFFFFF;
+        .close-btn {
+            cursor: pointer;
+            margin: 15px 0 0 610px;
+            background-color: blue;
+            height: 20px;
+            width: 20px;
+        }
+        .login-purchase-title {
+            margin: 10px 0 0 250px;
+            font-size: 18px;
+        }
+        .login-purchase-seat {
+            font-size: 14px;
+            margin: 20px 0 0 275px;
+        }
+        .login-purchase-sum {
+            font-size: 14px;
+            margin: 20px 0 0 265px;
+        }
+        .login-purchase-logo {
+            background-color: #4A4A4A;
+            margin: 30px 0 0 270px;
+            height: 80px;
+            width: 80px;
+        }
+        .login-purchase-tip {
+            width: 320px;
+            margin: 40px 0 0 175px;
+            span {
+                float: left;
+            }
+            select {
+                margin-top: 20px;
+                float: left;
+                font-family: Hiragino Sans GB, Microsoft Yahei, sans-serif;
+                width: 300px;
+                height: 30px;
+                padding-left: 5px;
+                color: #4A4A4A;
+                border: solid 1px #C8C7CC;
+            }
+        }
+        .btn-field {
+            margin: 160px 0 0 175px;
+            .cancel-btn {
+                margin-right: 60px;
+                text-align: center;
+                height: 32px;
+                width: 88px;
+                border: solid 1px #C8C7CC;
+                color: #4A4A4A;
+            }
+            .next-btn {
+                background-color: #1E7DA5;
+                text-align: center;
+                height: 32px;
+                width: 88px;
+                border: solid 1px #1E7DA5;
+                color: #FFFFFF;
+            }
+        }
+    }
+    .ticket-field {
+        display: none;
+        position: fixed;
+        left: 350px;
+        top: 100px;
+        height: 500px;
+        width: 650px;
+        background-color: #FFFFFF;
+        .close-btn {
+            cursor: pointer;
+            margin: 15px 0 0 610px;
+            background-color: blue;
+            height: 20px;
+            width: 20px;
+        }
+        .ticket-title {
+            margin: 10px 0 0 285px;
+            font-size: 18px;
+        }
+        .ticket {
+            background-color: #4A4A4A;
+            margin: 30px 0 0 180px;
+            height: 290px;
+            width: 290px;
+        }
+        .btn-field {
+            margin: 30px 0 0 175px;
+            .cancel-btn {
+                margin-right: 60px;
+                text-align: center;
+                height: 32px;
+                width: 88px;
+                border: solid 1px #C8C7CC;
+                color: #4A4A4A;
+            }
+            .next-btn {
+                background-color: #1E7DA5;
+                text-align: center;
+                height: 32px;
+                width: 88px;
+                border: solid 1px #1E7DA5;
+                color: #FFFFFF;
+            }
+        }
+    }
+}
+#JSON-hide {
+    display: none;
 }
