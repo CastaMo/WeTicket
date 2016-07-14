@@ -130,7 +130,7 @@ for (var i = 0, len = a.length; i < len; i++) {
 }
 
 var a = {
-	user_name : "user1",
+	user_name : "user2",
 	password: "pass",
 	email: "502442134@qq.com",
 	phone_number: 18819473259
