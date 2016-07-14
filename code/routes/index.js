@@ -29,6 +29,10 @@ module.exports = function(passport) {
 
 	router.post('/User/Update/Password', User.updatePassword);
 
+	router.post('/Ticket/Add', Ticket.createTicket);
+
+	router.post('/Ticket/Remove', Ticket.removeTicket);
+
 	router.post('/test/tx1', User.getAllUsers);
 
 	router.post('/test/tx2', User.createUser);
