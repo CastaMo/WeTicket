@@ -2,8 +2,9 @@ var EventProxy 		= require("eventproxy"),
 	dao 			= require("../dao"),
 	authMiddleWare 	= require('../middlewares/auth'),
 	parseCookie 	= require("../common/parseCookie"),
-	User			= dao.User;
-	Cinema 			= dao.Cinema;
+	User			= dao.User,
+	Cinema 			= dao.Cinema,
+	Ticket 			= dao.Ticket,
 	Movie	 		= dao.Movie;
 
 
@@ -86,7 +87,7 @@ var showMain = function(req, res, next) {
 		allData 	= {},
 		err_flag 	= false,
 		ep 			= new EventProxy(),
-		events 		= ['user', 'cinemas', 'movies'],
+		events 		= ['user', 'cinemas', 'movies', 'tickets'],
 		user_name;
 
 	ep.assign(events, function(user, cinemas, movies) {
@@ -115,9 +116,22 @@ var showMain = function(req, res, next) {
 				allData.user = user;
 			}
 			ep.emit("user", user);
+			if (user) {
+				Ticket.getAllTicketsByUserId(user._id, function(err, tickets) {
+					if (err || !tickets) {
+						err_flag = true;
+					} else {
+						allData.tickets = tickets;
+					}
+					ep.emit("tickets", tickets);
+				});
+			} else {
+				ep.emit("tickets", null);
+			}
 		});
 	} else {
 		ep.emit("user", null);
+		ep.emit("tickets", null);
 	}
 
 	Cinema.getAllCinema(function(err, cinemas) {
