@@ -36,6 +36,7 @@ var removeById = function(id, callback) {
 }
 
 var getAllTicketsByUserId = function(user_id, callback) {
+	console.log(user_id);
 	Ticket.find({user_id:user_id}, function(err, tickets) {
 		if (err) {
 			return callback(err);
