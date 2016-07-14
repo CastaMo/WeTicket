@@ -9,7 +9,10 @@ var EventProxy 		= require("eventproxy"),
 
 var getAllUsers = function(req, res, next) {
 	User.getAllUsers(function(err, users) {
-		res.json(users);
+		res.json({
+			message  	: 	"success",
+			users 		: 	users
+		});
 	});
 }
 
@@ -69,7 +72,14 @@ var login = function(req, res, next) {
 }
 
 
-
+var showProfile = function(req, res, next) {
+	var cookie 		= parseCookie(req.headers.cookie),
+		allData 	= {},
+		err_flag 	= false,
+		ep 			= new EventProxy(),
+		events 		= ['user', 'cinemas', 'movies'],
+		user_name;
+}
 
 var showMain = function(req, res, next) {
 	var cookie 		= parseCookie(req.headers.cookie),
