@@ -36,6 +36,16 @@ main-manage = let
 		$('.release-movie-left .single-release-movie-title').val(_movies[0]._id)
 		$('.release-movie-left .single-release-movie-information').html("#{_movies[0].duration_time}分钟 - #{type}")
 		$('.release-movie-left').append _release-movie-single-dom
+		$('.release-movie-left .single-release-movie-detail').click !->
+			$('.information-title').html("#{_movies[0].movie_name}")
+			$('.information-title').val(_movies[0]._id)
+			$('.information-info').html("#{_movies[0].duration_time}分钟 - #{type}")
+			$('.information-date').html("上映日期：#{_movies[0].release_time}")
+			$('.information-des').html("剧情：#{_movies[0].des}")
+			$('.detail-img').css("background-image", "url(#{_movies[0].url})")
+			page.toggle-page "detail"
+		$('.release-movie-left .single-release-movie-purchase').click !->
+			page.toggle-page "step1"
 		for i from 1 to 6 by 1
 			type = ''
 			test = _movies[i].type.toString(2)
@@ -59,6 +69,18 @@ main-manage = let
 			_release-movie-single-dom.find('.single-release-movie-title').val(_movies[i]._id)
 			_release-movie-single-dom.find('.single-release-movie-time').html("#{_movies[i].duration_time}分钟")
 			_release-movie-single-dom.find('.single-release-movie-type').html("#{type}")
+			_release-movie-single-dom.find('.single-release-movie-detail').click !->
+				for m from 0 to 14 by 1
+					if $(@).parent().find('.single-release-movie-title').val! is _movies[m]._id
+						$('.information-title').html("#{_movies[m].movie_name}")
+						$('.information-title').val(_movies[m]._id)
+						$('.information-info').html("#{_movies[m].duration_time}分钟 - #{type}")
+						$('.information-date').html("上映日期：#{_movies[m].release_time}")
+						$('.information-des').html("剧情：#{_movies[m].des}")
+						$('.detail-img').css("background-image", "url(#{_movies[m].url})")
+				page.toggle-page "detail"
+			_release-movie-single-dom.find('.single-release-movie-purchase').click !->
+				page.toggle-page "step1"
 			$('.release-movie-right').append _release-movie-single-dom
 		for i from 7 to 14 by 1
 			_soon-movie-single-dom = $ "<div class = 'single-soon-movie'>
@@ -80,7 +102,18 @@ main-manage = let
 			_soon-movie-single-dom.find('.single-soon-movie-title').val(_movies[i]._id)
 			_soon-movie-single-dom.find('.single-soon-movie-infomation').html("#{_movies[i].duration_time}分钟 - #{type}")
 			_soon-movie-single-dom.find('.single-soon-movie-date').html("#{_movies[i].release_time}")
+			_soon-movie-single-dom.find('.single-soon-movie-detail').click !->
+				for m from 0 to 14 by 1
+					if $(@).parent().find('.single-soon-movie-title').val! is _movies[m]._id
+						$('.information-title').html("#{_movies[m].movie_name}")
+						$('.information-title').val(_movies[m]._id)
+						$('.information-info').html("#{_movies[m].duration_time}分钟 - #{type}")
+						$('.information-date').html("上映日期：#{_movies[m].release_time}")
+						$('.information-des').html("剧情：#{_movies[m].des}")
+						$('.detail-img').css("background-image", "url(#{_movies[m].url})")
+				page.toggle-page "detail"
 			$('.soon-movie').append _soon-movie-single-dom
+
 	_init-all-click = !->
 		$('.logo').click !->
 			location.reload('/')
@@ -99,6 +132,32 @@ main-manage = let
 
 		$('.close-btn').click !->
 			page.toggle-page "close"
+
+		$('.cancel-btn').click !->
+			page.toggle-page "close"
+
+		$('.return-btn').click !->
+			page.toggle-page "main"
+
+		$('.de-purchase-btn').click !->
+			page.toggle-page "step1"
+
+		$('.step1-btn').click !->
+			page.toggle-page "step2"
+
+		$('.step2-btn').click !->
+			if _user
+				page.toggle-page "step3-login"
+			else if !_user
+				page.toggle-page "step3-unlogin"
+
+		$('.step3-btn').click !->
+			page.toggle-page "step4"
+
+		$('.user-login').click !->
+			$('.person-name').html("#{_user.user_name}")
+			page.toggle-page "person"
+
 
 		$('.register-confirm').click !->
 			request-object = {}

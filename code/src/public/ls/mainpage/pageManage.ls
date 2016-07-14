@@ -3,6 +3,7 @@ page-manage = let
 	_main-dom = $ "\#mainpage-content"
 	_cover-dom = $ "\#cover"
 	_log-dom = $ "\#log"
+	_purchase-dom = $ "\#purchase"
 	_person-dom = $ "\#person"
 	_personal-dom = $ "\#personal"
 	_detail-dom = $ "\#detail"
@@ -13,7 +14,7 @@ page-manage = let
 	_step4-dom = $ "\.ticket-field"
 	_register-dom = $ "\.register-field"
 	_login-dom = $ "\.login-field"
-	_all-id-dom = [_main-dom, _cover-dom, _log-dom, _person-dom, _personal-dom, _detail-dom]
+	_all-id-dom = [_purchase-dom, _main-dom, _cover-dom, _log-dom, _person-dom, _personal-dom, _detail-dom]
 	_all-class-dom = [_step1-dom, _step2-dom, _step3-login-dom, _step3-unlogin-dom, _step4-dom, _register-dom, _login-dom]
 	_all-close-dom = [_log-dom, _cover-dom, _personal-dom, _step1-dom, _step2-dom, _step3-login-dom, _step3-unlogin-dom, _step4-dom, _register-dom, _login-dom]
 
@@ -53,22 +54,27 @@ page-manage = let
 		"step1"		:		let
 			->
 				_cover-dom.fade-in 200
+				_purchase-dom.fade-in 200
 				_step1-dom.fade-in 200
 		"step2"		:		let
 			->
 				_cover-dom.fade-in 200
+				_purchase-dom.fade-in 200
 				_step2-dom.fade-in 200
 		"step3-login"		:		let
 			->
 				_cover-dom.fade-in 200
+				_purchase-dom.fade-in 200
 				_step3-login-dom.fade-in 200
 		"step3-unlogin"		:		let
 			->
 				_cover-dom.fade-in 200
+				_purchase-dom.fade-in 200
 				_step3-unlogin-dom.fade-in 200
 		"step4"		:		let
 			->
 				_cover-dom.fade-in 200
+				_purchase-dom.fade-in 200
 				_step4-dom.fade-in 200
 		"person"		:		let
 			->
@@ -80,6 +86,8 @@ page-manage = let
 				_personal-dom.fade-in 200
 		"close"		:		let
 			->
+				_log-dom.fade-out 200
+				_purchase-dom.fade-out 200
 				_unshow-close-dom!
 	}
 
