@@ -6,19 +6,25 @@ block head
 	block css
 
 '''这里是主体'''
+
 block content
+	include log
+	include purchase
+	include personal
 	#mainpage
 		#mainpage-wrapper
 			#mainpage-container
 				#top-container
 					.logo
 					.user
-						.login-btn
+						.login-btn.btn
 							span 登录
 						.txt
 							span |
-						.register-btn
+						.register-btn.btn
 							span 注册
+				include detail
+				include person
 				#release-container
 					.release-title
 						p 正在热映
@@ -27,21 +33,104 @@ block content
 					.release-movie
 						.release-movie-left
 							.single-release-movie
+								.single-release-movie-img
+								.single-release-movie-title
+									span 寒战2
+								.single-release-movie-information
+									span 110分钟 - 动作 / 剧情
+								.single-release-movie-detail.btn
+									span 查看详情
+								.single-release-movie-purchase.btn
+									span 购票
 						.release-movie-right
 							.single-release-movie
+								.single-release-movie-img
+								.single-release-movie-title
+									span 寒战2
+								.single-release-movie-time
+									span 110分钟
+								.single-release-movie-type
+									span 动作 / 剧情
+								.single-release-movie-detail
+									span 查看详情>>
+								.single-release-movie-purchase.btn
+									span 购票
+							.single-release-movie
+								.single-release-movie-img
+								.single-release-movie-title
+									span 寒战2
+								.single-release-movie-time
+									span 110分钟
+								.single-release-movie-type
+									span 动作 / 剧情
+								.single-release-movie-detail
+									span 查看详情>>
+								.single-release-movie-purchase.btn
+									span 购票
+							.single-release-movie
+								.single-release-movie-img
+								.single-release-movie-title
+									span 寒战2
+								.single-release-movie-time
+									span 110分钟
+								.single-release-movie-type
+									span 动作 / 剧情
+								.single-release-movie-detail
+									span 查看详情>>
+								.single-release-movie-purchase.btn
+									span 购票
+							.single-release-movie
+								.single-release-movie-img
+								.single-release-movie-title
+									span 寒战2
+								.single-release-movie-time
+									span 110分钟
+								.single-release-movie-type
+									span 动作 / 剧情
+								.single-release-movie-detail
+									span 查看详情>>
+								.single-release-movie-purchase.btn
+									span 购票
+							.single-release-movie
+								.single-release-movie-img
+								.single-release-movie-title
+									span 寒战2
+								.single-release-movie-time
+									span 110分钟
+								.single-release-movie-type
+									span 动作 / 剧情
+								.single-release-movie-detail
+									span 查看详情>>
+								.single-release-movie-purchase.btn
+									span 购票
+							.single-release-movie
+								.single-release-movie-img
+								.single-release-movie-title
+									span 寒战2
+								.single-release-movie-time
+									span 110分钟
+								.single-release-movie-type
+									span 动作 / 剧情
+								.single-release-movie-detail
+									span 查看详情>>
+								.single-release-movie-purchase.btn
+									span 购票
 				#middle-container
 					.movie-select
 						select._movie-select
+							option 电影
 							option 寒战2
 							option 大鱼海棠
 							option 惊天魔盗团2
 					.hall-select
 						select._hall-select
+							option 影厅
 							option 1号厅
 							option 2号厅
 							option 3号厅
 					.season-select
 						select._season-select
+							option 场次
 							option 19:00
 							option 20:00
 							option 21:00
@@ -51,8 +140,86 @@ block content
 						.soon-more
 							span 更多 >>
 					.soon-movie
-						.soon-movie
-							.single-soon-movie
+						.single-soon-movie
+							.single-soon-movie-img
+							.single-soon-movie-title
+								span 寒战2
+							.single-soon-movie-infomation
+								span 110分钟 - 动作 / 剧情
+							.single-soon-movie-date
+								span 7月15日上映
+							.single-soon-movie-detail
+								span 查看详情>>
+						.single-soon-movie
+							.single-soon-movie-img
+							.single-soon-movie-title
+								span 寒战2
+							.single-soon-movie-infomation
+								span 110分钟 - 动作 / 剧情
+							.single-soon-movie-date
+								span 7月15日上映
+							.single-soon-movie-detail
+								span 查看详情>>
+						.single-soon-movie
+							.single-soon-movie-img
+							.single-soon-movie-title
+								span 寒战2
+							.single-soon-movie-infomation
+								span 110分钟 - 动作 / 剧情
+							.single-soon-movie-date
+								span 7月15日上映
+							.single-soon-movie-detail
+								span 查看详情>>
+						.single-soon-movie
+							.single-soon-movie-img
+							.single-soon-movie-title
+								span 寒战2
+							.single-soon-movie-infomation
+								span 110分钟 - 动作 / 剧情
+							.single-soon-movie-date
+								span 7月15日上映
+							.single-soon-movie-detail
+								span 查看详情>>
+						.single-soon-movie
+							.single-soon-movie-img
+							.single-soon-movie-title
+								span 寒战2
+							.single-soon-movie-infomation
+								span 110分钟 - 动作 / 剧情
+							.single-soon-movie-date
+								span 7月15日上映
+							.single-soon-movie-detail
+								span 查看详情>>
+						.single-soon-movie
+							.single-soon-movie-img
+							.single-soon-movie-title
+								span 寒战2
+							.single-soon-movie-infomation
+								span 110分钟 - 动作 / 剧情
+							.single-soon-movie-date
+								span 7月15日上映
+							.single-soon-movie-detail
+								span 查看详情>>
+						.single-soon-movie
+							.single-soon-movie-img
+							.single-soon-movie-title
+								span 寒战2
+							.single-soon-movie-infomation
+								span 110分钟 - 动作 / 剧情
+							.single-soon-movie-date
+								span 7月15日上映
+							.single-soon-movie-detail
+								span 查看详情>>
+						.single-soon-movie
+							.single-soon-movie-img
+							.single-soon-movie-title
+								span 寒战2
+							.single-soon-movie-infomation
+								span 110分钟 - 动作 / 剧情
+							.single-soon-movie-date
+								span 7月15日上映
+							.single-soon-movie-detail
+								span 查看详情>>
 				#bottom-container
 					.contact
 						span 联系我们

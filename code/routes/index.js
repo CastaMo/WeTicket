@@ -14,6 +14,10 @@ module.exports = function(passport) {
 		res.redirect("/index");
 	});
 
+	router.get('/personpage', function(req, res) {
+		res.render('./personpage');
+	});
+
 	router.get('/index', User.showMain);
 
 	router.post('/User/Signup', User.createUser);
