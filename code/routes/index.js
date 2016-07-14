@@ -6,6 +6,7 @@ var express 	= require('express'),
 	User 		= require("../controllers/user"),
 	Cinema 		= require("../controllers/cinema"),
 	Movie 		= require("../controllers/movie"),
+	Ticket 		= require("../controllers/ticket"),
 	parseCookie = require("../common/parseCookie");
 
 module.exports = function(passport) {
@@ -44,7 +45,7 @@ module.exports = function(passport) {
 
 	router.post('/test/tx8', Movie.removeAll);
 
-	
+	router.post('/test/tx9', Ticket.createTicket);
 
 	return router;
 };

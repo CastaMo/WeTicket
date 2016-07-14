@@ -3,11 +3,13 @@
  	 ObjectId  = Schema.ObjectId;
 
 var TicketSchema = new Schema({
-	order_id 		: {type: ObjectId},
+	cinema_name 	: {type: String},
+	hail_number 	: {type: Number},
 	seat_coordinate : {type: Array},
-	session_id 		: {type: ObjectId},
-	price 			: {type: Number}
+	price 			: {type: Number},
+	des 			: {type: String},
+	time 			: {type: String},
+	user_id 		: {type: ObjectId}
 });
-
 
 mongoose.model('Ticket', TicketSchema);
