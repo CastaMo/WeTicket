@@ -74,7 +74,6 @@ var login = function(req, res, next) {
 var showMain = function(req, res, next) {
 	var cookie 		= parseCookie(req.headers.cookie),
 		allData 	= {},
-		signal 		= 3,
 		err_flag 	= false,
 		ep 			= new EventProxy(),
 		events 		= ['user', 'cinemas', 'movies'],
