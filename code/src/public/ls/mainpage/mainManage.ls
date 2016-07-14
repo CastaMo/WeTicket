@@ -158,6 +158,16 @@ main-manage = let
 			$('.person-name').html("#{_user.user_name}")
 			page.toggle-page "person"
 
+		$('.screen-seat input').click !->
+			_apply = $(@).parent()
+			if _apply.hasClass("true")
+				$(@).attr("checked", false)
+				$(@).parent().removeClass "true"
+				$(@).parent().addClass "false"
+			else if _apply.hasClass("false")
+				$(@).attr("checked", true)
+				$(@).parent().removeClass "false"
+				$(@).parent().addClass "true"
 
 		$('.register-confirm').click !->
 			request-object = {}
