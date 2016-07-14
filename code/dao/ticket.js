@@ -13,12 +13,15 @@ var getTicketById = function(id, callback) {
 
 
 var newAndSave = function(options, callback) {
-	var ticket 				= new Movie();
+	var ticket 				= new Ticket();
 
-	ticket.order_id 		= options.order_id;
+	ticket.hail_number 		= options.hail_number;
 	ticket.seat_coordinate 	= options.seat_coordinate;
-	ticket.session_id 		= options.session_id;
 	ticket.price 			= options.price;
+	ticket.des 				= options.des;
+	ticket.time 			= options.time;
+	ticket.cinema_name 		= options.cinema_name;
+	ticket.user_id 			= options.user_id;
 
 	ticket.save(callback);
 }
@@ -32,9 +35,19 @@ var removeById = function(id, callback) {
 	});
 }
 
+var getAllTicketsByUserId = function(user_id, callback) {
+	Ticket.find({user_id:user_id}, function(err, tickets) {
+		if (err) {
+			return callback(err);
+		}
+		return callback(null, tickets);
+	});
+}
+
 
 module.exports = {
-	getTicketById 	 	: 	getTicketById,
-	newAndSave 			: 	newAndSave,
-	removeById 			: 	removeById
+	getTicketById 	 		: 	getTicketById,
+	newAndSave 				: 	newAndSave,
+	removeById 				: 	removeById,
+	getAllTicketsByUserId 	: 	getAllTicketsByUserId
 };
