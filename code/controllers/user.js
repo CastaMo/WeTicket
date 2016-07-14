@@ -9,7 +9,10 @@ var EventProxy 		= require("eventproxy"),
 
 var getAllUsers = function(req, res, next) {
 	User.getAllUsers(function(err, users) {
-		res.json(users);
+		res.json({
+			message  	: 	"success",
+			users 		: 	users
+		});
 	});
 }
 
@@ -68,31 +71,40 @@ var login = function(req, res, next) {
 	});
 }
 
+
+var showProfile = function(req, res, next) {
+	var cookie 		= parseCookie(req.headers.cookie),
+		allData 	= {},
+		err_flag 	= false,
+		ep 			= new EventProxy(),
+		events 		= ['user', 'cinemas', 'movies'],
+		user_name;
+}
+
 var showMain = function(req, res, next) {
 	var cookie 		= parseCookie(req.headers.cookie),
 		allData 	= {},
-		signal 		= 3,
 		err_flag 	= false,
+		ep 			= new EventProxy(),
+		events 		= ['user', 'cinemas', 'movies'],
 		user_name;
 
-	var integrateCallback = function() {
-		signal--;
-		if (signal > 0) return;
+	ep.assign(events, function(user, cinemas, movies) {
 		if (err_flag) {
-			res.render("mainpage/develop", {
-				mainJSON : JSON.stringify({
-					message: "fail"
+			return res.render("mainpage/develop", {
+				mainJSON : 	JSON.stringify({
+					message : "fail"
 				})
 			});
 		} else {
-			res.render("mainpage/develop", {
-				mainJSON : JSON.stringify({
-					message: "success",
-					allData: allData
+			return res.render("mainpage/develop", {
+				mainJSON : 	JSON.stringify({
+					message : "success",
+					allData : allData
 				})
-			})
+			});
 		}
-	}
+	});
 
 	if (user_name = cookie.user_name) {
 		User.getUserByUserName(user_name, function(err, user) {
@@ -102,10 +114,10 @@ var showMain = function(req, res, next) {
 			} else {
 				allData.user = user;
 			}
-			integrateCallback();
+			ep.emit("user", user);
 		});
 	} else {
-		integrateCallback();
+		ep.emit("user", null);
 	}
 
 	Cinema.getAllCinema(function(err, cinemas) {
@@ -114,7 +126,7 @@ var showMain = function(req, res, next) {
 		} else {
 			allData.cinema = cinemas[0];
 		}
-		integrateCallback();
+		ep.emit("cinemas", cinemas);
 	});
 
 	Movie.getAllMovies(function(err, movies) {
@@ -123,7 +135,7 @@ var showMain = function(req, res, next) {
 		} else {
 			allData.movies = movies;
 		}
-		integrateCallback();
+		ep.emit("movies", movies);
 	});
 
 }
