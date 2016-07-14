@@ -199,11 +199,6 @@ module.exports = function(grunt) {
                 files: {
                     "<%= dirs.dest_path %>mainpage.html": "<%= dirs.source_path %><%= dirs.jade %>mainpage/develop.jade",
                 }
-            },
-            personpage: {
-                files: {
-                    "<%= dirs.dest_path %>personpage.html": "<%= dirs.source_path %><%= dirs.jade %>personpage/develop.jade",
-                }
             }
         },
         less: {
@@ -215,12 +210,6 @@ module.exports = function(grunt) {
                 files: {
                     "<%= dirs.dest_path %><%= dirs.css %>mainpage/main.css": "<%= dirs.source_path %><%= dirs.less %>mainpage/main.less",
                     "<%= dirs.dest_path %><%= dirs.css %>mainpage/base64.css": "<%= dirs.source_path %><%= dirs.less %>mainpage/base64.less"
-                }
-            },
-            personpage: {
-                files: {
-                    "<%= dirs.dest_path %><%= dirs.css %>personpage/main.css": "<%= dirs.source_path %><%= dirs.less %>personpage/main.less",
-                    "<%= dirs.dest_path %><%= dirs.css %>personpage/base64.css": "<%= dirs.source_path %><%= dirs.less %>personpage/base64.less"
                 }
             }
         },
@@ -236,24 +225,12 @@ module.exports = function(grunt) {
                 src: ['**/*.ls'],
                 dest: '<%= dirs.dest_path %><%= dirs.js %>mainpage/',
                 ext: '.js'
-            },
-            personpage: {
-                expand: true,
-                cwd: '<%= dirs.source_path %><%= dirs.ls %>personpage/',
-                src: ['**/*.ls'],
-                dest: '<%= dirs.dest_path %><%= dirs.js %>personpage/',
-                ext: '.js'
             }
         },
         browserify: {
             mainpage: {
                 files: {
                     "<%= dirs.dest_path %><%= dirs.js %>mainpage/main.js": ["<%= dirs.dest_path %><%= dirs.js %>mainpage/index.js"]
-                }
-            },
-            personpage: {
-                files: {
-                    "<%= dirs.dest_path %><%= dirs.js %>personpage/main.js": ["<%= dirs.dest_path %><%= dirs.js %>personpage/index.js"]
                 }
             }
         },

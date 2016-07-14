@@ -1,5 +1,15 @@
 @import "../common";
 
+#cover {
+    display: none;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+}
 #mainpage {
     font-family: Hiragino Sans GB, Microsoft Yahei, sans-serif;
     #mainpage-wrapper {
@@ -8,6 +18,7 @@
                 height: 70px;
                 background-color: #4A4A4A;
                 .logo {
+                    cursor: pointer;
                     margin: 20px 0 0 200px;
                     float: left;
                     background-size: contain;
@@ -16,6 +27,7 @@
                     height: 31px;
                 }
                 .user {
+                    display: none;
                     margin: 20px 256px 0 0;
                     color: #FFFFFF;
                     float: right;
@@ -30,9 +42,28 @@
                         margin: 0 5px 0 5px;
                     }
                 }
+                .user-login {
+                    display: none;
+                    cursor: pointer;
+                    margin: 15px 256px 0 0;
+                    color: #FFFFFF;
+                    float: right;
+                    .user-img {
+                        float: left;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        height: 40px;
+                        width: 40px;
+                    }
+                    .user-name {
+                        margin: 10px 0 0 20px;
+                        float: left;
+                        font-size: 14px;
+                    }
+                }
             }
             #release-container {
-                width: 900px;
+                width: 1000px;
                 height: 600px;
                 margin: 30px 0 0 200px;
                 .release-title {
@@ -58,16 +89,20 @@
                             .single-release-movie-img {
                                 height: 308px;
                                 width: 230px;
-                                background-color: #8D8D8D;
+                                background-size: contain;
+                                background-repeat: no-repeat;
                             }
                             .single-release-movie-title {
                                 margin: 15px 0 10px 10px;
                                 font-size: 18px;
-                                font-weight: bold;
                             }
                             .single-release-movie-information {
                                 margin-left: 10px;
                                 font-size: 12px;
+                            }
+                            .single-release-movie-time,
+                            .single-release-movie-type {
+                                display: none;
                             }
                             .single-release-movie-detail {
                                 margin: 15px 30px 0 0;
@@ -92,35 +127,38 @@
                     }
                     .release-movie-right {
                         float: right;
-                        width: 570px;
+                        width: 620px;
                         height: 400px;
                         margin: 30px 0 0 0;
                         .single-release-movie {
                             position: relative;
                             float: left;
-                            width: 220px;
-                            margin: 0 65px 20px 0;
+                            width: 310px;
+                            margin: 0 0 20px 0;
                             .single-release-movie-img {
+                                background-size: contain;
+                                background-repeat: no-repeat;
                                 float: left;
                                 height: 140px;
                                 width: 100px;
-                                background-color: #8D8D8D;
                             }
                             .single-release-movie-title {
                                 float: left;
                                 margin: 0 0 0 20px;
                                 font-size: 18px;
-                                font-weight: bold;
+                            }
+                            .single-release-movie-information {
+                                display: none;
                             }
                             .single-release-movie-time {
                                 float: left;
-                                width: 80px;
+                                width: 180px;
                                 margin: 8px 0 0 20px;
                                 font-size: 12px;
                             }
                             .single-release-movie-type {
                                 float: left;
-                                width: 80px;
+                                width: 180px;
                                 margin: 8px 0 0 20px;
                                 font-size: 12px;
                             }
@@ -128,7 +166,7 @@
                                 cursor: pointer;
                                 float: left;
                                 margin: 10px 0 0 20px;
-                                width: 80px;
+                                width: 180px;
                                 color: #8D8D8D;
                                 font-size: 10px;
                             }
@@ -188,11 +226,12 @@
                         margin-top: 30px;
                         margin-right: 20px;
                         .single-soon-movie-img {
+                            background-size: contain;
+                            background-repeat: no-repeat;
                             margin-left: 20px;
                             float: left;
                             height: 140px;
                             width: 100px;
-                            background-color: #8D8D8D;
                         }
                         .single-soon-movie-title {
                             margin-top: 10px;
@@ -200,7 +239,6 @@
                             float: left;
                             width: 140px;
                             font-size: 18px;
-                            font-weight: bold;
                         }
                         .single-soon-movie-infomation {
                             float: left;
@@ -262,9 +300,6 @@
         height: 100%;
         width: 100%;
     }
-    .log-container {
-        background-color: rgba(0, 0, 0, 0.6);
-    }
     .register-field {
         display: none;
         position: fixed;
@@ -276,14 +311,12 @@
         .img-field {
             .person-logo {
                 margin: 7px 0 0 200px;
-                background-color: red;
                 height: 81px;
                 width: 81px;
             }
             .close-btn {
                 cursor: pointer;
                 margin: 15px 0 0 445px;
-                background-color: blue;
                 height: 20px;
                 width: 20px;
             }
@@ -299,11 +332,11 @@
             .user-password-logo {
                 margin: 1px;
                 position: relative;
+                top: 5px;
                 left: 30px;
                 display: inline-block;
-                background-color: green;
-                height: 30px;
-                width: 30px;
+                height: 20px;
+                width: 20px;
                 vertical-align: bottom;
             }
             input {
@@ -315,9 +348,9 @@
                 padding-left: 50px;
             }
         }
-        .register-click {
+        .register-confirm {
             cursor: pointer;
-            margin-left: 90px;
+            margin-left: 80px;
             text-align: center;
             line-height: 32px;
             color: #FFFFFF;
@@ -346,14 +379,12 @@
         .img-field {
             .person-logo {
                 margin: 7px 0 0 200px;
-                background-color: red;
                 height: 81px;
                 width: 81px;
             }
             .close-btn {
                 cursor: pointer;
                 margin: 15px 0 0 445px;
-                background-color: blue;
                 height: 20px;
                 width: 20px;
             }
@@ -369,11 +400,11 @@
             .user-password-logo {
                 margin: 1px;
                 position: relative;
+                top: 5px;
                 left: 30px;
                 display: inline-block;
-                background-color: green;
-                height: 30px;
-                width: 30px;
+                height: 20px;
+                width: 20px;
                 vertical-align: bottom;
             }
             input {
@@ -393,9 +424,9 @@
             height: 14px;
             float: left;
         }
-        .login-click {
+        .login-confirm {
             cursor: pointer;
-            margin-left: 90px;
+            margin-left: 80px;
             text-align: center;
             line-height: 32px;
             color: #FFFFFF;
@@ -584,9 +615,6 @@
         height: 100%;
         width: 100%;
     }
-    .personal-container {
-        background-color: rgba(0, 0, 0, 0.6);
-    }
     .personal-content {
         position: fixed;
         left: 350px;
@@ -693,9 +721,6 @@
     .purchase-wrapper {
         height: 100%;
         width: 100%;
-    }
-    .purchase-container {
-        background-color: rgba(0, 0, 0, 0.6);
     }
     .choose-season {
         display: none;
