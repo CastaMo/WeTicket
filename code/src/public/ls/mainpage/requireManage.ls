@@ -1,17 +1,21 @@
+#与后台相关请求
 require-manage = let
 
 	[	get-JSON,	ajax,	deep-copy] 		= 
 		[	util.get-JSON, 	util.ajax,	util.deep-copy]
 
 	_all-require-name = [
-		'login',	'register',		'add',		'delete'
+		'login',		'logout',	'register',		'add',		'delete',		'modify-password',		'modify-profile'
 	]
 
 	_all-require-URL = {
-		'login'			:		'/User/Login'
-		'register'		:		'/User/Signup'
-		'add'			:		'/Ticket/Add'
-		'delete'		:		'/Ticket/Remove'
+		'login'				:		'/User/Login'
+		'logout'			:		'/User/Logout'
+		'register'			:		'/User/Signup'
+		'add'				:		'/Ticket/Add'
+		'delete'			:		'/Ticket/Remove'
+		'modify-password'	:		'/User/Update/Password'
+		'modify-profile'	:		'/User/Update/Profile'
 	}
 
 	_requires = {}
@@ -30,18 +34,24 @@ require-manage = let
 
 	_correct-URL = {
 		"login"			:		(ajax-object,data)-> ajax-object.url += ""
+		"logout"			:		(ajax-object,data)-> ajax-object.url += ""		
 		"register"		:		(ajax-object,data)-> ajax-object.url += ""
 		"add"			:		(ajax-object,data)-> ajax-object.url += ""
-		"delete"			:		(ajax-object,data)-> ajax-object.url += ""
+		"delete"		:		(ajax-object,data)-> ajax-object.url += ""
+		"modify-profile"		:		(ajax-object,data)-> ajax-object.url += ""	
+		"modify-password"		:		(ajax-object,data)-> ajax-object.url += ""
 	}
 
 	_set-header = {}
 
 	_get-require-data-str = {
 		"login"			:		(data)-> return "#{data.JSON}"
+		"logout"			:		(data)-> return "#{data.JSON}"
 		"register"		:		(data)-> return "#{data.JSON}"
 		"add"			:		(data)-> return "#{data.JSON}"
-		"delete"			:		(data)-> return "#{data.JSON}"
+		"delete"		:		(data)-> return "#{data.JSON}"
+		"modify-password"		:		(data)-> return "#{data.JSON}"
+		"modify-profile"		:		(data)-> return "#{data.JSON}"
 	}
 
 	_normal-handle = (name, result_, callback)->

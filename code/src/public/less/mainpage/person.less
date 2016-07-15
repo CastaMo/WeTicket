@@ -1,0 +1,238 @@
+//个人首页
+#person {
+    display: none;
+    #person-wrapper {
+        height: 900px;
+        color: #4A4A4A;
+        #person-container {
+            float: left;
+            margin: 50px 0 0 200px;
+            height: 240px;
+            width: 900px;
+            background-color: #FFFFFF;
+            border: solid 1px #C8C7CC;
+            .person-name {
+                margin: 50px 0 0 50px;
+                font-size: 18px;
+                ._modify-person {
+                    margin-left: 10px;
+                    color: #1E7DA5;
+                    font-size: 10px;
+                }
+            }
+            .person-info {
+                .person-img {
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    float: left;
+                    margin: 20px 0 0 50px;
+                    height: 100px;
+                    width: 100px;
+                }
+                .person-email,
+                .person-phone,
+                .person-password {
+                    width: 400px;
+                    float: left;
+                    font-size: 14px;
+                    margin: 20px 0 0 30px;
+                }
+                .person-profile {
+                    position: relative;
+                    bottom: 19px;
+                    left: 100px;
+                    width: 100px;
+                    font-size: 14px;
+                    margin: 20px 0 0 140px;
+                }
+                ._modify-password,
+                ._modify-profile {
+                    cursor: pointer;
+                    color: #1E7DA5;
+                }
+            }
+        }
+        #personal-ticket {
+            float: left;
+            margin: 30px 0 30px 200px;
+            height: auto;
+            width: 900px;
+            background-color: #FFFFFF;
+            border: solid 1px #C8C7CC;
+            .personal-ticket-title {
+                font-size: 18px;
+                margin: 50px 0 0 50px;
+            }
+            .personal-ticket-content {
+                margin: 30px 0 20px 50px;
+                font-size: 14px;
+                clear: both;
+                .personal-ticket-single {
+                    cursor: pointer;
+                    float: left;
+                    margin: 0 30px 30px 0;
+                    height: 210px;
+                    width: 250px;
+                    border: solid 1px #C8C7CC;
+                    .delete-btn {
+                        float: right;
+                        position: relative;
+                        bottom: 10px;
+                        left: 10px;
+                        width: 20px;
+                        height: 20px;
+                        cursor: pointer;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                    }
+                    .personal-ticket-single-name {
+                        margin: 10px 0 0 10px;
+                        font-size: 16px;
+                    }
+                    .personal-ticket-single-img {
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        float: right;
+                        margin: 10px 10px 0 0;
+                        height: 50px;
+                        width: 50px;
+                        position: relative;
+                        bottom: 30px;
+                    }
+                    .personal-ticket-single-QRcode {
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        float: right;
+                        margin: 10px 10px 0 0;
+                        height: 50px;
+                        width: 50px;
+                        position: relative;
+                        left: 60px;
+                        top: 30px;
+                    }
+                    .personal-ticket-single-time {
+                        font-size: 12px;
+                        margin: 20px 0 10px 10px;
+                    }
+                    .personal-ticket-single-cinema,
+                    .personal-ticket-single-seat,
+                    .personal-ticket-single-feel {
+                        margin: 0 10px 10px 10px;
+                    }
+                }
+            }
+        }
+        .modify-password {
+            display: none;
+            z-index: 200;
+            position: fixed;
+            left: 350px;
+            top: 100px;
+            height: 500px;
+            width: 650px;
+            background-color: #FFFFFF;
+            .close-btn {
+                cursor: pointer;
+                margin: 15px 0 0 610px;
+                height: 20px;
+                width: 20px;
+            }
+            .password-title {
+                margin: 55px 0 0 270px;
+                font-size: 18px;
+            }
+            input {
+                font-family: Hiragino Sans GB, Microsoft Yahei, sans-serif;
+                padding-left: 5px;
+                margin: 40px 0 0 170px;
+                height: 40px;
+                width: 300px;
+                border: none;
+                color: #8D8D8D;
+                background-color: #F4F5F9;
+            }
+            .btn-field {
+                margin: 60px 0 0 175px;
+                .cancel-btn {
+                    margin-right: 60px;
+                    text-align: center;
+                    height: 32px;
+                    width: 88px;
+                    border: solid 1px #C8C7CC;
+                    color: #4A4A4A;
+                }
+                .modify-password-confirm {
+                    background-color: #1E7DA5;
+                    text-align: center;
+                    height: 32px;
+                    width: 88px;
+                    border: solid 1px #1E7DA5;
+                    color: #FFFFFF;
+                }
+            }
+        }
+        .modify-profile {
+            display: none;
+            z-index: 200;
+            position: fixed;
+            left: 350px;
+            top: 100px;
+            height: 500px;
+            width: 650px;
+            background-color: #FFFFFF;
+            .close-btn {
+                cursor: pointer;
+                margin: 15px 0 0 610px;
+                height: 20px;
+                width: 20px;
+            }
+            .profile-title {
+                margin: 55px 0 20px 270px;
+                font-size: 18px;
+            }
+            .profile-name,
+            .profile-mail,
+            .profile-phone {
+                width: 400px;
+                height: 45px;
+                margin: 20px 0 20px 150px;
+                span {
+                    float: left;
+                    width: 70px;
+                }
+            }
+            input {
+                float: left;
+                margin-left: 20px;
+                margin-right: 10px;
+                font-family: Hiragino Sans GB, Microsoft Yahei, sans-serif;
+                padding-left: 10px;
+                height: 40px;
+                width: 300px;
+                border: none;
+                color: #8D8D8D;
+                background-color: #F4F5F9;
+            }
+            .btn-field {
+                float: left;
+                margin: 60px 0 0 175px;
+                .cancel-btn {
+                    margin-right: 60px;
+                    text-align: center;
+                    height: 32px;
+                    width: 88px;
+                    border: solid 1px #C8C7CC;
+                    color: #4A4A4A;
+                }
+                .modify-profile-confirm {
+                    background-color: #1E7DA5;
+                    text-align: center;
+                    height: 32px;
+                    width: 88px;
+                    border: solid 1px #1E7DA5;
+                    color: #FFFFFF;
+                }
+            }
+        }
+    }
+}
