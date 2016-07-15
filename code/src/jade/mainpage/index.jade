@@ -1,11 +1,10 @@
+//主页面
 extends ../layout
 
 block head
 	meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
 	title WeTicket
 	block css
-
-'''这里是主体'''
 
 block content
 	include log
@@ -24,9 +23,12 @@ block content
 							span |
 						.register-btn.btn
 							span 注册
+					.user-logout
+						span 退出
 					.user-login
 						.user-img
 						.user-name
+
 				include detail
 				include person
 				#mainpage-content

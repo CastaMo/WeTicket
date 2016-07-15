@@ -1,0 +1,121 @@
+//定制化电影票
+#personal {
+    display: none;
+    font-family: Hiragino Sans GB, Microsoft Yahei, sans-serif;
+    font-size: 14px;
+    position: fixed;
+    z-index: 200;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    .personal-container,
+    .personal-wrapper {
+        height: 100%;
+        width: 100%;
+    }
+    .personal-content {
+        position: fixed;
+        left: 350px;
+        top: 100px;
+        height: 500px;
+        width: 650px;
+        background-color: #FFFFFF;
+        .close-btn {
+            cursor: pointer;
+            margin: 15px 0 0 610px;
+            height: 20px;
+            width: 20px;
+        }
+       .personal-title {
+            margin: 55px 0 0 250px;
+            font-size: 18px;
+        }
+        .personal-ticket-pre {
+            float: left;
+            margin: 30px 20px 30px 65px;
+            height: 210px;
+            width: 250px;
+            border: solid 1px #C8C7CC;
+            .personal-ticket-pre-name {
+                margin: 10px 0 0 10px;
+                font-size: 16px;
+            }
+            .personal-ticket-pre-img {
+                background-size: contain;
+                background-repeat: no-repeat;
+                float: right;
+                margin: 10px 10px 0 0;
+                height: 50px;
+                width: 50px;
+                position: relative;
+                bottom: 30px;
+            }
+            .personal-ticket-pre-QRcode {
+                background-size: contain;
+                background-repeat: no-repeat;
+                float: right;
+                margin: 10px 10px 0 0;
+                height: 50px;
+                width: 50px;
+                position: relative;
+                top: 30px;
+                left: 60px;
+            }
+            .personal-ticket-pre-time {
+                font-size: 12px;
+                margin: 20px 0 10px 10px;
+            }
+            .personal-ticket-pre-cinema,
+            .personal-ticket-pre-seat,
+            .personal-ticket-pre-feel {
+                margin: 0 10px 10px 10px;
+            }
+        }
+        .personal-ticket-now {
+            float: left;
+            margin: 30px 30px 30px 0;
+            height: 210px;
+            width: 250px;
+            border: solid 1px #C8C7CC;
+            .personal-picture,
+            .personal-QRcode,
+            .personal-feel {
+                margin: 20px 0 0 20px;
+                ._tip {
+                    float: left;
+                    width: 75px;
+                }
+                input {
+                    padding: 0 5px;
+                    width: 135px;
+                    height: 100px;
+                    border: solid 1px #C8C7CC;
+                }
+                ._picture,
+                ._QRcode {
+                    color: #1E7DA5;
+                }
+            }
+        }
+        .btn-field {
+            margin: 60px 0 0 175px;
+            .cancel-btn {
+                margin-right: 60px;
+                text-align: center;
+                height: 32px;
+                width: 88px;
+                border: solid 1px #C8C7CC;
+                color: #4A4A4A;
+            }
+            .next-btn {
+                background-color: #1E7DA5;
+                text-align: center;
+                height: 32px;
+                width: 88px;
+                border: solid 1px #1E7DA5;
+                color: #FFFFFF;
+            }
+        }
+    }
+}

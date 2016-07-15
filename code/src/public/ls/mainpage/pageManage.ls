@@ -1,3 +1,4 @@
+#页面状态ls
 page-manage = let
 
 	_main-dom = $ "\#mainpage-content"
@@ -14,8 +15,10 @@ page-manage = let
 	_step4-dom = $ "\.ticket-field"
 	_register-dom = $ "\.register-field"
 	_login-dom = $ "\.login-field"
+	_modify-password-dom = $ "\.modify-password"
+	_modify-profile-dom = $ "\.modify-profile"
 	_all-id-dom = [_purchase-dom, _main-dom, _cover-dom, _log-dom, _person-dom, _personal-dom, _detail-dom]
-	_all-class-dom = [_step1-dom, _step2-dom, _step3-login-dom, _step3-unlogin-dom, _step4-dom, _register-dom, _login-dom]
+	_all-class-dom = [_step1-dom, _step2-dom, _step3-login-dom, _step3-unlogin-dom, _step4-dom, _register-dom, _login-dom, _modify-password-dom, _modify-profile-dom]
 	_all-close-dom = [_log-dom, _cover-dom, _personal-dom, _step1-dom, _step2-dom, _step3-login-dom, _step3-unlogin-dom, _step4-dom, _register-dom, _login-dom]
 	_all-step-dom = [_step1-dom, _step2-dom, _step3-login-dom, _step3-unlogin-dom, _step4-dom]
 	_unshow-all-dom = !->
@@ -51,6 +54,18 @@ page-manage = let
 				_log-dom.fade-in 200
 				_cover-dom.fade-in 200
 				_register-dom.fade-in 200
+		"modify-password"		:		let
+			->
+				_unshow-all-dom!
+				_person-dom.fade-in 200
+				_modify-password-dom.fade-in 200
+				_cover-dom.fade-in 200
+		"modify-profile"		:		let
+			->
+				_unshow-all-dom!
+				_person-dom.fade-in 200
+				_modify-profile-dom.fade-in 200
+				_cover-dom.fade-in 200
 		"detail"		:		let
 			->
 				_unshow-all-dom!
@@ -95,6 +110,8 @@ page-manage = let
 			->
 				_log-dom.fade-out 200
 				_purchase-dom.fade-out 200
+				_modify-profile-dom.fade-out 200
+				_modify-password-dom.fade-out 200
 				_unshow-close-dom!
 	}
 

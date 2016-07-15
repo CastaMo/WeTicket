@@ -1,3 +1,4 @@
+//个人首页
 #person
 	#person-wrapper
 		#person-container
@@ -6,77 +7,42 @@
 			.person-info
 				.person-img
 				.person-email
-					span 邮箱：646706396@qq.com
+					span 邮箱：未填写
 				.person-phone
-					span 电话：18819773317
+					span 电话：未填写
 				.person-password
 					span._modify-password 修改密码
+				.person-profile
+					span._modify-profile 修改个人信息
 		#personal-ticket
 			.personal-ticket-title
 				span 定制个人电影票
 			.personal-ticket-content
-				.personal-ticket-single
-					.delete-btn
-					.personal-ticket-single-name
-						span 寒战2
-					.personal-ticket-single-img
-					.personal-ticket-single-time
-						span 2016.07.17 19:00
-					.personal-ticket-single-cinema
-						span 广州珠江金逸电影院
-					.personal-ticket-single-seat
-						span 1号厅 - 7排8座
-					.personal-ticket-single-feel
-						span 这电影真好看啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
-				.personal-ticket-single
-					.delete-btn
-					.personal-ticket-single-name
-						span 寒战2
-					.personal-ticket-single-img
-					.personal-ticket-single-time
-						span 2016.07.17 19:00
-					.personal-ticket-single-cinema
-						span 广州珠江金逸电影院
-					.personal-ticket-single-seat
-						span 1号厅 - 7排8座
-					.personal-ticket-single-feel
-						span 这电影真好看啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
-				.personal-ticket-single
-					.delete-btn
-					.personal-ticket-single-name
-						span 寒战2
-					.personal-ticket-single-img
-					.personal-ticket-single-time
-						span 2016.07.17 19:00
-					.personal-ticket-single-cinema
-						span 广州珠江金逸电影院
-					.personal-ticket-single-seat
-						span 1号厅 - 7排8座
-					.personal-ticket-single-feel
-						span 这电影真好看啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
-				.personal-ticket-single
-					.delete-btn
-					.personal-ticket-single-name
-						span 寒战2
-					.personal-ticket-single-img
-					.personal-ticket-single-time
-						span 2016.07.17 19:00
-					.personal-ticket-single-cinema
-						span 广州珠江金逸电影院
-					.personal-ticket-single-seat
-						span 1号厅 - 7排8座
-					.personal-ticket-single-feel
-						span 这电影真好看啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
-				.personal-ticket-single
-					.delete-btn
-					.personal-ticket-single-name
-						span 寒战2
-					.personal-ticket-single-img
-					.personal-ticket-single-time
-						span 2016.07.17 19:00
-					.personal-ticket-single-cinema
-						span 广州珠江金逸电影院
-					.personal-ticket-single-seat
-						span 1号厅 - 7排8座
-					.personal-ticket-single-feel
-						span 这电影真好看啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+		.modify-password
+			.close-btn
+			.password-title
+				span 修改密码
+			.old-password
+				input._modify-user-old(placeholder = "请输入旧密码" type = "password")
+			.new-password
+				input._modify-user-new(placeholder = "请输入新密码" type = "password")
+			.btn-field
+				.cancel-btn.btn
+					span 取消
+				.modify-password-confirm.btn
+					span 确定
+		.modify-profile
+			.close-btn
+			.profile-title
+				span 修改个人信息
+			.profile-mail
+				span 邮箱
+				input._modify-user-mail(placeholder = "请输入新邮箱")
+			.profile-phone
+				span 手机号码
+				input._modify-user-phone(placeholder = "请输入新手机号码")
+			.btn-field
+				.cancel-btn.btn
+					span 取消
+				.modify-profile-confirm.btn
+					span 确定
