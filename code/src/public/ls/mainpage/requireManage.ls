@@ -4,13 +4,14 @@ require-manage = let
 		[	util.get-JSON, 	util.ajax,	util.deep-copy]
 
 	_all-require-name = [
-		'login',	'register',		'test'
+		'login',	'register',		'add',		'delete'
 	]
 
 	_all-require-URL = {
 		'login'			:		'/User/Login'
 		'register'		:		'/User/Signup'
-		'test'			:		'/Dinner/Printer/Test'
+		'add'			:		'/Ticket/Add'
+		'delete'		:		'/Ticket/Remove'
 	}
 
 	_requires = {}
@@ -30,7 +31,8 @@ require-manage = let
 	_correct-URL = {
 		"login"			:		(ajax-object,data)-> ajax-object.url += ""
 		"register"		:		(ajax-object,data)-> ajax-object.url += ""
-		"test"			:		(ajax-object,data)-> ajax-object.url += ""
+		"add"			:		(ajax-object,data)-> ajax-object.url += ""
+		"delete"			:		(ajax-object,data)-> ajax-object.url += ""
 	}
 
 	_set-header = {}
@@ -38,7 +40,8 @@ require-manage = let
 	_get-require-data-str = {
 		"login"			:		(data)-> return "#{data.JSON}"
 		"register"		:		(data)-> return "#{data.JSON}"
-		"test"			:		(data)-> return "#{data.JSON}"
+		"add"			:		(data)-> return "#{data.JSON}"
+		"delete"			:		(data)-> return "#{data.JSON}"
 	}
 
 	_normal-handle = (name, result_, callback)->
