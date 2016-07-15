@@ -25,6 +25,8 @@ module.exports = function(passport) {
 
 	router.post('/User/Login', User.login);
 
+	router.post('/User/Logout', User.logout);
+
 	router.post('/User/Update/Profile', User.updateProfile);
 
 	router.post('/User/Update/Password', User.updatePassword);
@@ -32,24 +34,6 @@ module.exports = function(passport) {
 	router.post('/Ticket/Add', Ticket.createTicket);
 
 	router.post('/Ticket/Remove', Ticket.removeTicket);
-
-	router.post('/test/tx1', User.getAllUsers);
-
-	router.post('/test/tx2', User.createUser);
-
-	router.post('/test/tx3', User.login);
-
-	router.post('/test/tx4', User.updateProfile);
-
-	router.post('/test/tx5', User.updatePassword);
-
-	router.post('/test/tx6', Cinema.createCinema);
-
-	router.post('/test/tx7', Movie.createMoive);
-
-	router.post('/test/tx8', Movie.removeAll);
-
-	router.post('/test/tx9', Ticket.createTicket);
 
 	return router;
 };

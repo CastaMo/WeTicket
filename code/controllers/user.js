@@ -72,6 +72,13 @@ var login = function(req, res, next) {
 	});
 }
 
+var logout = function(req, res, next) {
+	res.cookie("user_name", "");
+	res.json({
+		message : "success"
+	});
+}
+
 
 var showProfile = function(req, res, next) {
 	var cookie 		= parseCookie(req.headers.cookie),
@@ -160,5 +167,6 @@ module.exports = {
 	updatePassword 	: 	updatePassword,
 	updateProfile 	: 	updateProfile,
 	login 			: 	login,
+	logout 			: 	logout,
 	showMain 		: 	showMain
 };
