@@ -306,32 +306,60 @@ main-manage = let
 			if _user
 				page.toggle-page "step3-login"
 			else if !_user
+				$('._phonenumber').val("")
 				page.toggle-page "step3-unlogin"
 
 		#购票步骤3跳转事件
 		$('.step3-btn').click !->
-			if _seat.length is 0
-				alert('请选择座位')
-				page.toggle-page "step2"
-			else if _seat.length isnt 0
-				for i from 0 to _seat.length-1 by 1
-					_coordinate = []
-					_ticket.user_id = _user._id
-					_coordinate.push(_seat[i]%10)
-					_coordinate.push(((_seat[i]-(_seat[i]%10))/10)+1)
-					console.log "_seat[i]", _seat[i]
-					_ticket.seat_coordinate = _coordinate
-					_ticket.price = 45
-					_ticket.des = ""
-					console.log "_ticket", _ticket
-					require_.get("add").require {
-						data 		:		{
-							JSON 	:		JSON.stringify(_ticket)
+			if _user
+				if _seat.length is 0
+					alert('请选择座位')
+					page.toggle-page "step2"
+				else if _seat.length isnt 0
+					for i from 0 to _seat.length-1 by 1
+						_coordinate = []
+						_ticket.user_id = _user._id
+						_coordinate.push(_seat[i]%10)
+						_coordinate.push(((_seat[i]-(_seat[i]%10))/10)+1)
+						console.log "_seat[i]", _seat[i]
+						_ticket.seat_coordinate = _coordinate
+						_ticket.price = 45
+						_ticket.des = ""
+						console.log "_ticket", _ticket
+						require_.get("add").require {
+							data 		:		{
+								JSON 	:		JSON.stringify(_ticket)
+							}
+							callback 	:		(succes)!-> _addTicket succes.ticket
 						}
-						callback 	:		(succes)!-> _addTicket succes.ticket
-					}
-				alert('购买成功')
-				page.toggle-page "step4"
+					alert('购买成功')
+					page.toggle-page "step4"
+			else if !_user
+				if _seat.length is 0
+					alert('请选择座位')
+					page.toggle-page "step2"
+				else if _seat.length isnt 0
+					for i from 0 to _seat.length-1 by 1
+						_coordinate = []
+						if $('._phonenumber').val! is ""
+							alert('请填写手机号码')
+						else if $('._phonenumber').val!
+							_ticket.user_id = $('._phonenumber').val!
+							_coordinate.push(_seat[i]%10)
+							_coordinate.push(((_seat[i]-(_seat[i]%10))/10)+1)
+							console.log "_seat[i]", _seat[i]
+							_ticket.seat_coordinate = _coordinate
+							_ticket.price = 45
+							_ticket.des = ""
+							console.log "_ticket", _ticket
+							require_.get("add").require {
+								data 		:		{
+									JSON 	:		JSON.stringify(_ticket)
+								}
+								callback 	:		(succes)!-> _addTicket succes.ticket
+							}
+							alert('购买成功')
+							page.toggle-page "step4"
 
 		#跳转我的首页
 		$('.user-login').click !->
