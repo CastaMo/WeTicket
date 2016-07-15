@@ -17,7 +17,7 @@ page-manage = let
 	_all-id-dom = [_purchase-dom, _main-dom, _cover-dom, _log-dom, _person-dom, _personal-dom, _detail-dom]
 	_all-class-dom = [_step1-dom, _step2-dom, _step3-login-dom, _step3-unlogin-dom, _step4-dom, _register-dom, _login-dom]
 	_all-close-dom = [_log-dom, _cover-dom, _personal-dom, _step1-dom, _step2-dom, _step3-login-dom, _step3-unlogin-dom, _step4-dom, _register-dom, _login-dom]
-
+	_all-step-dom = [_step1-dom, _step2-dom, _step3-login-dom, _step3-unlogin-dom, _step4-dom]
 	_unshow-all-dom = !->
 		for dom in _all-id-dom
 			dom.fade-out 200
@@ -26,6 +26,10 @@ page-manage = let
 
 	_unshow-close-dom = !->
 		for dom in _all-close-dom
+			dom.fade-out 200
+
+	_unshow-step-dom = !->
+		for dom in _all-step-dom
 			dom.fade-out 200
 
 	_toggle-page-callback = {
@@ -58,11 +62,14 @@ page-manage = let
 				_step1-dom.fade-in 200
 		"step2"		:		let
 			->
+				_step3-login-dom.fade-out 200
+				_step3-unlogin-dom.fade-out 200
 				_cover-dom.fade-in 200
 				_purchase-dom.fade-in 200
 				_step2-dom.fade-in 200
 		"step3-login"		:		let
 			->
+				_unshow-step-dom!
 				_cover-dom.fade-in 200
 				_purchase-dom.fade-in 200
 				_step3-login-dom.fade-in 200

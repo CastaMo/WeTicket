@@ -2,7 +2,10 @@ main-manage = let
 	[get-JSON, deep-copy] = [util.get-JSON, util.deep-copy]
 	page = require_ = null
 	_movies = []
+	_tickets = []
 	_user = {}
+	_ticket = {}
+	_seat = []
 	_type = ['喜剧', '动作', '剧情', '爱情', '动画', '冒险', '奇幻', '音乐', '惊悚', '历史', '犯罪', '战争', '悬疑', '恐怖', '运动', '武侠']
 
 	class Movie
@@ -10,15 +13,53 @@ main-manage = let
 			deep-copy options, @
 			_movies.push @
 
+	class Ticket
+		(options)!->
+			deep-copy options, @
+			_tickets.push @
+
 	_init-all-movie = !->
-		movieArrJSON = $('#JSON-hide').html!
+		allArrJSON = $('#JSON-hide').html!
 		movieArr = []
-		movieArr = JSON.parse(movieArrJSON).allData.movies
-		_user := JSON.parse(movieArrJSON).allData.user
+		ticketArr = []
+		movieArr = JSON.parse(allArrJSON).allData.movies
+		ticketArr = JSON.parse(allArrJSON).allData.tickets
+		_user := JSON.parse(allArrJSON).allData.user
 		console.log "_user", _user
 		for movie in movieArr
 			new Movie(movie)
 		console.log "_movies", _movies
+		for ticket in ticketArr
+			new Ticket(ticket)
+		console.log "_tickets", _tickets
+
+	_init-ticket-page = !->
+		for i from 0 to _tickets.length-1 by 1
+			_single-ticket-dom = $ "<div class = 'personal-ticket-single'>
+										<div class = 'delete-btn'></div>
+										<div class = 'personal-ticket-single-name'></div>
+										<div class = 'personal-ticket-single-img'></div>
+										<div class = 'personal-ticket-single-time'></div>
+										<div class = 'personal-ticket-single-cinema'></div>
+										<div class = 'personal-ticket-single-seat'></div>
+										<div class = 'personal-ticket-single-feel'></div>
+									</div>"
+			_single-ticket-dom.find('.personal-ticket-single-name').html("#{_tickets[i].movie_name}")
+			_single-ticket-dom.find('.personal-ticket-single-name').val("#{_tickets[i]._id}")
+			_single-ticket-dom.find('.personal-ticket-single-time').html("#{_tickets[i].time}")
+			_single-ticket-dom.find('.personal-ticket-single-cinema').html("#{_tickets[i].cinema_name}")
+			_single-ticket-dom.find('.personal-ticket-single-seat').html("#{_tickets[i].hail_number} 号厅 - #{_tickets[i].seat_coordinate[0]}排#{_tickets[i].seat_coordinate[1]}座")
+			_single-ticket-dom.find('.personal-ticket-single-feel').html("#{_tickets[i].des}")
+			_single-ticket-dom.find('.delete-btn').click !->
+				_delete-obj = {}
+				_delete-obj._id = $(@).parent().find('.personal-ticket-single-name').val!
+				require_.get("delete").require {
+					data 		:		{
+						JSON 	:		JSON.stringify(_delete-obj)
+					}
+					callback 	:		(succes)!-> ;
+				}
+			$('.personal-ticket-content').append _single-ticket-dom
 
 	_init-movie-page = !->
 		if _user
@@ -45,6 +86,8 @@ main-manage = let
 			$('.detail-img').css("background-image", "url(#{_movies[0].url})")
 			page.toggle-page "detail"
 		$('.release-movie-left .single-release-movie-purchase').click !->
+			_ticket := {}
+			_ticket.movie_name := _movies[0].movie_name
 			page.toggle-page "step1"
 		for i from 1 to 6 by 1
 			type = ''
@@ -80,6 +123,8 @@ main-manage = let
 						$('.detail-img').css("background-image", "url(#{_movies[m].url})")
 				page.toggle-page "detail"
 			_release-movie-single-dom.find('.single-release-movie-purchase').click !->
+				_ticket := {}
+				_ticket.movie_name := $(@).parent().find('.single-release-movie-title').html!
 				page.toggle-page "step1"
 			$('.release-movie-right').append _release-movie-single-dom
 		for i from 7 to 14 by 1
@@ -113,6 +158,11 @@ main-manage = let
 						$('.detail-img').css("background-image", "url(#{_movies[m].url})")
 				page.toggle-page "detail"
 			$('.soon-movie').append _soon-movie-single-dom
+		for k from 0 to 89 by 1
+			_checkbox-dom = $ "<div class = 'screen-seat false'>
+									<input type = 'checkbox'></input>
+								</div>"
+			$('.choose-seat-screen-seat').append _checkbox-dom
 
 	_init-all-click = !->
 		$('.logo').click !->
@@ -140,19 +190,50 @@ main-manage = let
 			page.toggle-page "main"
 
 		$('.de-purchase-btn').click !->
+			_ticket := {}
+			_ticket.movie_name := $('.information-title').html!
 			page.toggle-page "step1"
 
 		$('.step1-btn').click !->
+			_ticket.cinema_name := $('._choose-cinema').val!
+			_ticket.hail_number := Number($('._choose-hall').val!)
+			_ticket.time := $('._choose-season').val!
 			page.toggle-page "step2"
 
 		$('.step2-btn').click !->
+			_seat := []
+			for i from 1 to 90 by 1
+				if $('.choose-seat-screen-seat .screen-seat').eq(i).hasClass("true")
+					_seat.push(i)
+			$('.login-purchase-sum').html("一共消费 #{45*_seat.length} 元")
 			if _user
 				page.toggle-page "step3-login"
 			else if !_user
 				page.toggle-page "step3-unlogin"
 
 		$('.step3-btn').click !->
-			page.toggle-page "step4"
+			if _seat.length is 0
+				alert('请选择座位')
+				page.toggle-page "step2"
+			else if _seat.length isnt 0
+				for i from 0 to _seat.length-1 by 1
+					_coordinate = []
+					_ticket.user_id = _user._id
+					_coordinate.push(_seat[i]%10)
+					_coordinate.push(((_seat[i]-(_seat[i]%10))/10)+1)
+					console.log "_seat[i]", _seat[i]
+					_ticket.seat_coordinate = _coordinate
+					_ticket.price = 45
+					_ticket.des = ""
+					console.log "_ticket", _ticket
+					require_.get("add").require {
+						data 		:		{
+							JSON 	:		JSON.stringify(_ticket)
+						}
+						callback 	:		(succes)!-> ;
+					}
+				alert('购买成功')
+				page.toggle-page "step4"
 
 		$('.user-login').click !->
 			$('.person-name').html("#{_user.user_name}")
@@ -193,6 +274,7 @@ main-manage = let
 
 	_init-all-event = !->
 		_init-all-movie!
+		_init-ticket-page!
 		_init-movie-page!
 		_init-all-click!
 
