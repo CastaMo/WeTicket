@@ -22,6 +22,7 @@ var newAndSave = function(options, callback) {
 	ticket.time 			= options.time;
 	ticket.cinema_name 		= options.cinema_name;
 	ticket.user_id 			= options.user_id;
+	ticket.movie_name 		= options.movie_name;
 
 	ticket.save(callback);
 }
