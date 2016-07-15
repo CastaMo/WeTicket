@@ -4,6 +4,7 @@
 
 var TicketSchema = new Schema({
 	cinema_name 	: {type: String},
+	movie_name 		: {type: String},
 	hail_number 	: {type: Number},
 	seat_coordinate : {type: Array},
 	price 			: {type: Number},
