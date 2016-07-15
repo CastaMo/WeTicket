@@ -42,7 +42,7 @@ main-manage = let
 
 	#初始化我的首页中的电影票
 	_init-ticket-page = !->
-		if !_tickets
+		if _tickets
 			for i from 0 to _tickets.length-1 by 1
 				_single-ticket-dom = $ "<div class = 'personal-ticket-single'>
 											<div class = 'delete-btn'></div>
