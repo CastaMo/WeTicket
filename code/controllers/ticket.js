@@ -4,10 +4,11 @@ var EventProxy 		= require("eventproxy"),
 
 
 var createTicket = function(req, res, next) {
-	Ticket.newAndSave(req.body, function(err) {
+	Ticket.newAndSave(req.body, function(err, ticket) {
 		var msg = err || "success";
 		res.json({
-			message : msg
+			message : msg,
+			ticket 	: ticket
 		});
 	});
 }
